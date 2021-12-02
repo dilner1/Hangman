@@ -10,7 +10,17 @@ def generate_the_word():
     word_file.close()
     print(random_word.lower()) 
 
-       
+def player_turn():
+    """
+    Takes player guess
+    """
+    lives = 8
+    player_guess = input("Please choose a letter:").lower()
+    if not player_guess.isalpha():
+        print("Only letters are allowed, try again!")
+    else:
+        print(f'You selected the letter {player_guess}')
+        
 
 def main():
     """
@@ -19,7 +29,8 @@ def main():
     print("Welcome to Hangman, let's begin")
 
     generate_the_word()
-    print("A word has been selected, type a letter.")
+    print("A word has been selected.")
+    player_turn()
 
 main()
 
