@@ -1,5 +1,7 @@
 import random
 
+lives = 8
+letters_guessed = []
 
 def generate_the_word():
     """
@@ -14,14 +16,15 @@ def player_turn():
     """
     Takes player guess
     """
-    lives = 8
+    letters_guessed 
     player_guess = input("Please choose a letter:").lower()
     if not player_guess.isalpha():
-        print("Only letters are allowed, try again!")
+        return "Only letters are allowed, try again!"
     else:
         print(f'You selected the letter {player_guess}')
+        letters_guessed.append(player_guess)
+        print(letters_guessed)
         
-
 def main():
     """
     Calls all functions
