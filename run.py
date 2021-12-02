@@ -1,51 +1,108 @@
-# Must include - 
-#   difficulty selector
-#   word for player to player
-#   player turn number
-#   function that draws hangman
-#   function that subtracts player turn on guess
-#   if word is guessed break cycle - start again
-
-# word = "guess"
-# turns_left = 6
-
-# def select_difficulty():
-#     """
-#     Player chooses difficulty - this will then grab word from one or several databases / text files
-#     """
-
-# def get_word():
-#     """
-#     Gets word from database
-#     """
-
-# def hide_word():
-#     """
-#     Takes word from database and assigns it a _ value
-#     """
-
-# def player_choice():
-#     """
-#     Player chooses a letter - must be a letter
-#     """
-# def letter_match():
-#     """
-#     does player choice match a letter in word
-#     also check if letter has already been selected?
-#     """
-
-# def win():
-#     """
-#     Have alll letters been selected or goes used?
-#     """
-
-# def drawing():
-#     """
-#     Contains hangman drawing
-#     """
+import random
 
 
-# def main():
+def generate_the_word():
+    """
+    Opens easyWords.txt file and selects a word at random
+    """
+    word_file = open("easyWords.txt", "r")
+    random_word = random.choice(word_file.read().split('\n'))
+    word_file.close()
+    print(random_word.lower()) 
+
+       
+
+def main():
+    """
+    Calls all functions
+    """
+    print("Welcome to Hangman, let's begin")
+
+    generate_the_word()
+    print("A word has been selected, type a letter.")
+
+main()
+
+    
+# def hang_man_drawing(image):
+#     """"
+#     Stores the drawing states of the hangman
 #     """
-#     Calls all functions
+#     drawing = [
+#         """
+     
+#     ========
+#     """,
 #     """
+#       |
+#       |
+#       |
+#       |
+#       |
+#     ========
+#     """,
+#     """
+#      _________
+#       |/
+#       |
+#       |
+#       |
+#       |
+#     ========
+#     """,
+#     """
+#      _________
+#       |/     |
+#       |      0
+#       |
+#       |
+#       |
+#     ========
+#     """,
+#     """
+#      _________
+#       |/     |
+#       |      0
+#       |      |
+#       |
+#       |
+#     ========
+#     """,
+#     """
+#      _________
+#       |/     |
+#       |      0
+#       |      |\\
+#       |
+#       |
+#     ========
+#     """,
+#     """
+#      _________
+#       |/     |
+#       |      0
+#       |     /|\\
+#       |
+#       |
+#     ========
+#     """,
+#     """
+#      _________
+#       |/     |
+#       |      0
+#       |     /|\\
+#       |     /
+#       |
+#     ========
+#     """,
+#     """
+#      _________
+#       |/     |
+#       |      0
+#       |     /|\\
+#       |     / \\
+#       |
+#     ========
+#     """
+#     ]
+#     return drawing(image)
