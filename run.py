@@ -17,7 +17,7 @@ def player_turn():
     Takes player guess
     """
     letters_guessed 
-    player_guess = input("Please choose a letter:").lower()
+    player_guess = input("Please choose a letter:\n").lower()
     if not player_guess.isalpha():
         return "Only letters are allowed, try again!"
     else:
