@@ -14,9 +14,14 @@ logo = ("""
     """)
 
 def difficulty_select():
+    """
+    Takes input from user to select difficulty
+    """
+
     global difficulty
     difficulty_question = input("Please select difficulty,\n Type easy, medium or hard: ")
     difficulty.append(difficulty_question.lower())
+
     print(f"You selected {difficulty}.")
 
 
