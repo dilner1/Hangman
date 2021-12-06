@@ -2,7 +2,7 @@ import random
 
 lives = 8
 letters_guessed = []
-difficulty = []
+difficulty = ""
 
 logo = ("""
     __  __                                      
@@ -17,18 +17,20 @@ def difficulty_select():
     """
     Takes input from user to select difficulty
     """
-
+    
     global difficulty
     difficulty_question = input("Please select difficulty,\n Type easy, medium or hard: ")
-    difficulty.append(difficulty_question.lower())
+    difficulty += difficulty_question.lower()
+    diff = difficulty.replace(" ", "")
 
-    print(f"You selected {difficulty}.")
+    print(f"You selected {diff}.")
 
 
 def generate_the_word():
     """
     Opens easyWords.txt file and selects a word at random
     """
+    print(difficulty)
     word_file = open("easyWords.txt", "r")
     random_word = random.choice(word_file.read().split('\n'))
     word_file.close()
