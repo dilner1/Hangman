@@ -2,6 +2,23 @@ import random
 
 lives = 8
 letters_guessed = []
+difficulty = []
+
+logo = ("""
+    __  __                                      
+   / / / /___ _____  ____ _____ ___  ____ _____ 
+  / /_/ / __ `/ __ \/ __ `/ __ `__ \/ __ `/ __ \\
+ / __  / /_/ / / / / /_/ / / / / / / /_/ / / / /
+/_/ /_/\__,_/_/ /_/\__, /_/ /_/ /_/\__,_/_/ /_/ 
+                  /____/                        
+    """)
+
+def difficulty_select():
+    global difficulty
+    difficulty_question = input("Please select difficulty,\n Type easy, medium or hard: ")
+    difficulty.append(difficulty_question.lower())
+    print(f"You selected {difficulty}.")
+
 
 def generate_the_word():
     """
@@ -29,12 +46,13 @@ def main():
     """
     Calls all functions
     """
-    print("Welcome to Hangman, let's begin")
-
+    print("Welcome to Hangman, let's begin!")
+    difficulty_select()
     generate_the_word()
     print("A word has been selected.")
     player_turn()
 
+print(logo)
 main()
 
     
