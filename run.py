@@ -1,11 +1,13 @@
 import random
+import easyWords
 
-word = "words"
+thing = easyWords.easy_word_list
+word = random.choice(thing)
 lives = 8
 letters_guessed = []
 done = False
 
-difficulty = ""
+# difficulty = ""
 
 logo = ("""
     __  __                                      
@@ -15,6 +17,17 @@ logo = ("""
 /_/ /_/\__,_/_/ /_/\__, /_/ /_/ /_/\__,_/_/ /_/ 
                   /____/                        
     """)
+
+#  def generate_the_word():
+#     """
+#     Opens easyWords.txt file and selects a word at random
+#     """
+#     # print(difficulty)
+#     word_file = open("easyWords.txt", "r")
+#     random_word = random.choice(word_file.read().split('\n'))
+#     word_file.close()
+#     print(random_word.lower()) 
+
 def hide_word():
     global done
     global lives
