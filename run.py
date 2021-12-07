@@ -38,6 +38,9 @@ def hide_word():
         player_select_letter()
 
 def player_select_letter():
+    """
+    Takes player input
+    """
     global done
     global lives
     global word
@@ -51,6 +54,9 @@ def player_select_letter():
             win_check()
 
 def win_check():
+    """ 
+    Checks if player wins or loses
+    """
     global done
     global letters_guessed
     done = True
