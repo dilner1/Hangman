@@ -16,6 +16,10 @@ logo = ("""
                   /____/                        
     """)
 def hide_word():
+    global done
+    global lives
+    global word
+    global letters_guessed
     while not done:
         for letter in word:
             if letter.lower() in letters_guessed:
