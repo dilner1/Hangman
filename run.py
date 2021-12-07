@@ -15,29 +15,43 @@ logo = ("""
 /_/ /_/\__,_/_/ /_/\__, /_/ /_/ /_/\__,_/_/ /_/ 
                   /____/                        
     """)
-
-while not done:
-    for letter in word:
-        if letter.lower() in letters_guessed:
-            print(letter, end="")
-        else:
-            print("_",end="")
-    print("")
-
-    guess = input(f"Allowed error left {lives}. Next Guess:")
-    letters_guessed.append(guess.lower())
-    if guess.lower() not in word.lower():
-        lives -= 1
-        if lives == 0:
-            break
-
-    done = True
-    for letter in word:
-        if letter.lower() not in letters_guessed:
-            done = False
+def hide_word():
+    while not done:
+        for letter in word:
+            if letter.lower() in letters_guessed:
+                print(letter, end="")
+            else:
+                print("_",end="")
+        print("")
 
 
+        guess = input(f"Allowed error left {lives}. Next Guess:")
+        letters_guessed.append(guess.lower())
+        if guess.lower() not in word.lower():
+            lives -= 1
+            if lives == 0:
+                break
 
+        done = True
+        for letter in word:
+            if letter.lower() not in letters_guessed:
+                done = False
+
+
+    if done:
+        print(f"You found the word, it was {word}")
+    else: 
+        print(f"You lost, the word was {word}")
+
+def main():
+    """
+    Prints all functions
+    """
+    hide_word()
+
+
+print(logo)
+main()
 
 
 # def difficulty_select():
