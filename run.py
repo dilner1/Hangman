@@ -21,22 +21,11 @@ logo = ("""
                   /____/                        
     """)
 
-#  def generate_the_word():
-#     """
-#     Opens easyWords.txt file and selects a word at random
-#     """
-#     # print(difficulty)
-#     word_file = open("easyWords.txt", "r")
-#     random_word = random.choice(word_file.read().split('\n'))
-#     word_file.close()
-#     print(random_word.lower()) 
 
 def hide_word():
     """
     Hides letters in chosen word from player
     """
-    global done
-    global lives
     global word
     global letters_guessed
     while not done:
@@ -46,19 +35,28 @@ def hide_word():
             else:
                 print("_",end="")
         print("")
+        player_select_letter()
 
-        guess = input(f"Allowed error left {lives}. Next Guess:")
-        letters_guessed.append(guess.lower())
-        if guess.lower() not in word.lower():
-            lives -= 1
-            print(hangman[lives])
-            if lives == 0:
-                break
+def player_select_letter():
+    global done
+    global lives
+    global word
+    global letters_guessed
+    guess = input(f"Allowed error left {lives}. Next Guess:")
+    letters_guessed.append(guess.lower())
+    if guess.lower() not in word.lower():
+        lives -= 1
+        print(hangman[lives])
+        if lives == 0:
+            win_check()
 
-        done = True
-        for letter in word:
-            if letter.lower() not in letters_guessed:
-                done = False
+def win_check():
+    global done
+    global letters_guessed
+    done = True
+    for letter in word:
+        if letter.lower() not in letters_guessed:
+            done = False
 
 
     if done:
@@ -71,6 +69,7 @@ def main():
     Prints all functions
     """
     hide_word()
+    win_check()
     
 print(logo)
 main()
