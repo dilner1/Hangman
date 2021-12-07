@@ -33,7 +33,7 @@ logo = ("""
 
 def hide_word():
     """
-    Hides letters in word
+    Hides letters in chosen word from player
     """
     global done
     global lives
@@ -46,7 +46,6 @@ def hide_word():
             else:
                 print("_",end="")
         print("")
-
 
         guess = input(f"Allowed error left {lives}. Next Guess:")
         letters_guessed.append(guess.lower())
@@ -73,7 +72,5 @@ def main():
     """
     hide_word()
     
-
-
 print(logo)
 main()
