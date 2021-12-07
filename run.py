@@ -1,10 +1,13 @@
 import random
 import easyWords
+import drawing
 
-thing = easyWords.easy_word_list
-word = random.choice(thing)
-lives = 7
+all_easy_words = easyWords.easy_word_list
+word = random.choice(all_easy_words)
+hangman = drawing.drawing_dictionary
+lives = 9
 letters_guessed = []
+
 done = False
 
 # difficulty = ""
@@ -46,6 +49,7 @@ def hide_word():
         letters_guessed.append(guess.lower())
         if guess.lower() not in word.lower():
             lives -= 1
+            print(hangman[lives])
             if lives == 0:
                 break
 
@@ -64,7 +68,6 @@ def main():
     """
     Prints all functions
     """
-    print(hang_man_drawing(lives))
     hide_word()
 
 
