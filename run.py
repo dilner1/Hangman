@@ -32,6 +32,11 @@ logo = ("""
 #     print(random_word.lower()) 
 
 def hide_word():
+    """
+    Hides letters in word
+    """
+    global done
+    global lives
     global word
     global letters_guessed
     while not done:
@@ -43,37 +48,31 @@ def hide_word():
         print("")
 
 
-def player_input():
-    global word
-    global letters_guessed
-    global done
-    global lives
+        guess = input(f"Allowed error left {lives}. Next Guess:")
+        letters_guessed.append(guess.lower())
+        if guess.lower() not in word.lower():
+            lives -= 1
+            print(hangman[lives])
+            if lives == 0:
+                break
 
-    guess = input(f"Allowed error left {lives}. Next Guess:")
-    letters_guessed.append(guess.lower())
-    if guess.lower() not in word.lower():
-        lives -= 1
-        print(hangman[lives])
-        if lives == 0:
-            break
-        
-    done = True
-    for letter in word:
-        if letter.lower() not in letters_guessed:
-            done = False
+        done = True
+        for letter in word:
+            if letter.lower() not in letters_guessed:
+                done = False
 
 
-if done:
-    print(f"You found the word, it was {word}")
-else: 
-    print(f"You lost, the word was {word}")
+    if done:
+        print(f"You found the word, it was {word}")
+    else: 
+        print(f"You lost, the word was {word}")
 
 def main():
     """
     Prints all functions
     """
     hide_word()
-    player_input()
+    
 
 
 print(logo)
