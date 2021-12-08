@@ -5,8 +5,7 @@ import drawing
 all_easy_words = easyWords.easy_word_list
 word = random.choice(all_easy_words)
 hangman = drawing.drawing_dictionary
-lives = 9
-letters_guessed = []
+
 
 done = False
 
@@ -21,13 +20,14 @@ logo = ("""
                   /____/                        
     """)
 
-
-def hide_word():
+def game():
     """
-    Hides letters in chosen word from player
+    Hides letters in word
     """
-    global word
-    global letters_guessed
+    global done
+    # global word
+    lives = 9
+    letters_guessed = []
     while not done:
         for letter in word:
             if letter.lower() in letters_guessed:
@@ -35,35 +35,19 @@ def hide_word():
             else:
                 print("_",end="")
         print("")
-        player_select_letter()
 
-def player_select_letter():
-    """
-    Takes player input
-    """
-    global done
-    global lives
-    global word
-    global letters_guessed
-    guess = input(f"Allowed error left {lives}. Next Guess:")
-    letters_guessed.append(guess.lower())
-    if guess.lower() not in word.lower():
-        lives -= 1
-        print(hangman[lives])
-        if lives == 0:
-            win_check()
+        guess = input(f"You have {lives} lives left. Guess next letter:")
+        letters_guessed.append(guess.lower())
+        if guess.lower() not in word.lower():
+            lives -= 1
+            print(hangman[lives])
+            if lives == 0:
+                break
 
-def win_check():
-    """ 
-    Checks if player wins or loses
-    """
-    global done
-    global letters_guessed
-    done = True
-    for letter in word:
-        if letter.lower() not in letters_guessed:
-            done = False
-
+        done = True
+        for letter in word:
+            if letter.lower() not in letters_guessed:
+                done = False
 
     if done:
         print(f"You found the word, it was {word}")
@@ -74,8 +58,7 @@ def main():
     """
     Prints all functions
     """
-    hide_word()
-    win_check()
+    game()
     
 print(logo)
 main()
