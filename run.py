@@ -22,8 +22,11 @@ logo = ("""
 
 class game():
     def __init__(self):
+        """
+        Define variables for class
+        """
         self.word = word
-        self.secret_word = ["_" for letter in self.word]
+        self.secret = ["_" for letter in self.word]
         self.guess = 9
         self.hangman = hangman
 
@@ -32,7 +35,8 @@ class game():
         Test that word is fetched
         """
         print(word)
-        print(secret_word)
+        joined_word = "".join(self.secret)
+        print(joined_word)
 
 
 def main():
