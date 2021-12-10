@@ -48,7 +48,8 @@ class game():
         """
         print(hangman[lives])
 
-    def 
+    def store_guesses(self, guess):
+        guesses.append(guess)
 
 def main():
     """
