@@ -27,24 +27,31 @@ class game():
         """
         self.word = word
         self.secret = ["_" for letter in self.word]
-        self.guess = 9
+        self.lives = 8
         self.hangman = hangman
+
+        print("Game starting.\n")
 
     def show_word(self):
         """
         Test that word is fetched
         """
-        print(word)
         joined_word = "".join(self.secret)
-        print(joined_word)
+        print(f"{joined_word}\n")
+        
+        print(f'You have {self.lives} guesses remaining.')
 
+    def drawing(self, lives):
+        print(hangman[lives])
 
 def main():
     """
     Prints all functions
     """
-    game()
-    game().show_word()
+    play = game()
+    lives = play.lives
+    play.show_word()
+    play.drawing(lives)
     
 print(logo)
 main()
