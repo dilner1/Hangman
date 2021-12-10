@@ -29,6 +29,7 @@ class game():
         self.secret = ["_" for letter in self.word]
         self.lives = 8
         self.hangman = hangman
+        self.guesses = []
 
         print("Game starting.\n")
 
@@ -39,18 +40,24 @@ class game():
         joined_word = "".join(self.secret)
         print(f"{joined_word}\n")
         
-        print(f'You have {self.lives} guesses remaining.')
+        print(f'You have {self.lives} chances remaining.')
 
     def drawing(self, lives):
+        """
+        Prints takes the players lives and prints out connected picture
+        """
         print(hangman[lives])
+
+    def 
 
 def main():
     """
     Prints all functions
     """
     play = game()
-    lives = play.lives
+
     play.show_word()
+    lives = play.lives
     play.drawing(lives)
     
 print(logo)
