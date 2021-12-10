@@ -21,7 +21,18 @@ logo = ("""
     """)
 
 class game():
-    
+    def __init__(self):
+        self.word = word
+        self.secret_word = ["_" for letter in self.word]
+        self.guess = 9
+        self.hangman = hangman
+
+    def show_word(self):
+        """
+        Test that word is fetched
+        """
+        print(word)
+        print(secret_word)
 
 
 def main():
@@ -29,6 +40,7 @@ def main():
     Prints all functions
     """
     game()
+    game().show_word()
     
 print(logo)
 main()
