@@ -82,7 +82,6 @@ class game():
         Checks if word has been guessed
         """
         if self.guesses == word:
-            print("You win!")
             return True
 
 def main():
@@ -106,7 +105,9 @@ def main():
         #     play.is_guess_in_word(guess, word)
         play.is_guess_in_word(guess, word)
 
+        play.check_win(word, guesses, lives)
         if play.check_win(word, guesses, lives):
+            print("You win!")
             break
         elif lives == 0:
             print("You ran out of lives.\nYou lose, loser!")
