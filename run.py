@@ -58,15 +58,21 @@ class game():
 
         print(f"so far you have guessed{guessed_words}")
 
+    def is_valid_guess(guess):
+        """
+        Checks if guess is a valid
+        """
+
     def is_guess_in_word(self, guess, word):
         """
         Checks if guess matches a letter in the hidden word
         """
-        if guess == letter in word:
-            print("yes")
-        else:
-            self.lives -1
-            print("Incorrect, you lost a life\n")
+        for letter in word:
+            if guess == letter:
+                print("yes")
+            else:
+                self.lives -= 1
+                print("Incorrect, you lost a life\n")
 
     def check_win(self, word, guesses):
         if self.guesses == word:
@@ -88,6 +94,9 @@ def main():
         play.drawing(lives)
         guess = input("Guess a letter: ")
         play.store_guesses(guess)
+        # play.is_valid_guess(guess)
+        # if play.is_valid_guess(guess) == True:
+        #     play.is_guess_in_word(guess, word)
         play.is_guess_in_word(guess, word)
 
         if play.check_win(word, guesses):
