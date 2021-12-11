@@ -25,7 +25,7 @@ class game():
         """
         Define variables for class
         """
-        self.word = word
+        self.word = "yes"#word
         self.secret = ["_" for letter in self.word]
         self.lives = 8
         self.hangman = hangman
@@ -67,12 +67,11 @@ class game():
         """
         Checks if guess matches a letter in the hidden word
         """
-        for letter in word:
-            if guess == letter:
-                print("yes")
-            else:
-                self.lives -= 1
-                print("Incorrect, you lost a life\n")
+        if guess.lower() not in word.lower():
+            self.lives -= 1
+            print("Incorrect, you lost a life.\n")
+        else:
+            print("You guessed a letter correctly.\n")
 
     def check_win(self, word, guesses):
         if self.guesses == word:
