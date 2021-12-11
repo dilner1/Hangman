@@ -73,10 +73,13 @@ class game():
         else:
             print("You guessed a letter correctly.\n")
 
-    def check_win(self, word, guesses):
+    def check_win(self, word, guesses, lives):
         if self.guesses == word:
             print("You win!")
             return True
+        elif lives == 0:
+            print("You ran out of lives")
+            return False
 
 def main():
     """
@@ -85,20 +88,23 @@ def main():
     play = game()
     word = play.word
     print("A word has been selected.\n")
-
+    lives = play.lives
     guesses = play.guesses
+    play.show_word()
     while True:
         play.show_word()
         lives = play.lives
         play.drawing(lives)
-        guess = input("Guess a letter: ")
+        guess = input("Guess a letter:\n")
         play.store_guesses(guess)
         # play.is_valid_guess(guess)
         # if play.is_valid_guess(guess) == True:
         #     play.is_guess_in_word(guess, word)
         play.is_guess_in_word(guess, word)
 
-        if play.check_win(word, guesses):
+        if play.check_win(word, guesses, lives):
+            break
+        else: 
             break
     
 print(logo)
