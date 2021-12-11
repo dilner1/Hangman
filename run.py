@@ -76,9 +76,11 @@ class game():
                 if letter.lower() in self.guesses:
                     print(letter, end=" ")
         print("")
-            
 
     def check_win(self, word, guesses, lives):
+        """
+        Checks if word has been guessed
+        """
         if self.guesses == word:
             print("You win!")
             return True
