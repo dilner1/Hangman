@@ -21,9 +21,9 @@ Result: What happened
 Verdict: did it work?
 
 ## bugs
-Problem: Issue
-Cause: What caused it
-Resolution: How it was fixed
+Problem: When guessing a letter lives would be taken off depending on number of letters in word. This would happen even if one letter was guessed correctly.
+Cause: Was checking each letter in word if it matched with the guess using 'for letter in word: if guess == letter:'
+Resolution: Change function to check if guess was in word rather than checked every letter
 
 
 
