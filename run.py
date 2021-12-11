@@ -72,6 +72,11 @@ class game():
             print("Incorrect, you lost a life.\n")
         else:
             print("You guessed a letter correctly.\n")
+            for letter in word:
+                if letter.lower() in self.guesses:
+                    print(letter, end=" ")
+        print("")
+            
 
     def check_win(self, word, guesses, lives):
         if self.guesses == word:
