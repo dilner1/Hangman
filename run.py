@@ -31,16 +31,17 @@ class game():
         self.hangman = hangman
         self.guesses = []
 
-        print("Game starting.\n")
+        print("Game starting...\n")
 
     def show_word(self):
         """
-        Test that word is fetched
+        Fetch word and show on screen
         """
-        joined_word = "".join(self.secret)
+
+        joined_word = " ".join(self.secret)
         print(f"{joined_word}\n")
         
-        print(f'You have {self.lives} chances remaining.')
+        print(f'You have {self.lives} lives remaining.')
 
     def drawing(self, lives):
         """
@@ -49,17 +50,48 @@ class game():
         print(hangman[lives])
 
     def store_guesses(self, guess):
-        guesses.append(guess)
+        """
+        Takes guessed letter and stores it
+        """
+        guessed_words = self.guesses
+        guessed_words.append(guess)
+
+        print(f"so far you have guessed{guessed_words}")
+
+    def is_guess_in_word(self, guess, word):
+        """
+        Checks if guess matches a letter in the hidden word
+        """
+        if guess == letter in word:
+            print("yes")
+        else:
+            self.lives -1
+            print("Incorrect, you lost a life\n")
+
+    def check_win(self, word, guesses):
+        if self.guesses == word:
+            print("You win!")
+            return True
 
 def main():
     """
     Prints all functions
     """
     play = game()
+    word = play.word
+    print("A word has been selected.\n")
 
-    play.show_word()
-    lives = play.lives
-    play.drawing(lives)
+    guesses = play.guesses
+    while True:
+        play.show_word()
+        lives = play.lives
+        play.drawing(lives)
+        guess = input("Guess a letter: ")
+        play.store_guesses(guess)
+        play.is_guess_in_word(guess, word)
+
+        if play.check_win(word, guesses):
+            break
     
 print(logo)
 main()
