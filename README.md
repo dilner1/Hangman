@@ -30,8 +30,8 @@ Cause: Code written to catch zero lives would only come into effect after -1 liv
 Resolution: Moved break on zero lives after lives = play.lives inside main() function
 
 Problem: Letters would show in the order they were guesses when correct, not their actual place in the word
-Cause: Did not have the 
-Resolution: Fetched length of word to assign index
+Cause: Did not have index for hidden word values
+Resolution: used range() and len() to find index
 
 
 ## Unfixed Bugs
