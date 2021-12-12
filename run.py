@@ -25,8 +25,8 @@ class game():
         """
         Define variables for class
         """
-        self.word = "Correct"#word
-        self.secret = ["_" for letter in self.word]
+        self.word = "yes"#word
+        self.secret = list(len(word)*'_')#["_" for letter in self.word]
         self.lives = 8
         self.hangman = hangman
         self.guesses = []
@@ -72,18 +72,11 @@ class game():
             print("Incorrect, you lost a life.\n")
         else:
             print("You guessed a letter correctly.\n")
-            for letter in word:
-                if letter.lower() in self.guesses:
-                    print(letter, end=" ")
+            for i in range(0, len(word)):
+                    letter = word[i]
+                    if letter == guess:
+                        self.secret[i] == guess
         print("")
-
-    def check_win(self, word, guesses, lives):
-        """
-        Checks if word has been guessed
-        """
-        for letter in word:
-            print('smashed it')
-            return True
 
 def main():
     """
@@ -97,6 +90,9 @@ def main():
     while True:
         play.show_word()
         lives = play.lives
+        if lives == 0:
+            print('You lose, loser!')
+            break
         play.drawing(lives)
         guess = input("Guess a letter:")
         play.store_guesses(guess.lower())
@@ -105,13 +101,13 @@ def main():
         #     play.is_guess_in_word(guess, word)
         play.is_guess_in_word(guess, word)
 
-        play.check_win(word, guesses, lives)
-        if play.check_win(word, guesses, lives):
-            print("You win!")
-            break
-        elif lives == 0:
-            print("You ran out of lives.\nYou lose, loser!")
-            break
+        # play.check_win(word, guesses, lives)
+        # if True:
+        #     print("You win!")
+        #     break
+        # elif lives == 0:
+        #     print("You ran out of lives.\nYou lose, loser!")
+        #     break
     
 print(logo)
 main()
