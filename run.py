@@ -55,8 +55,9 @@ class game():
         """
         guessed_words = self.guesses
         guessed_words.append(guess)
+        together = " ".join(guessed_words)
 
-        print(f"so far you have guessed{guessed_words}")
+        print(f"so far you have guessed: {together}")
 
     def is_valid_guess(guess):
         """
@@ -78,9 +79,9 @@ class game():
                         self.secret[i] = guess
                         
         print("")
-    def check_win(self, word):
+    def check_win(self, word, lives):
         if "_" not in self.secret:
-            print("yes queen")
+            print(f"Congratulations, you have guessed the word with {lives} left\n")
             return False
             
 
@@ -101,11 +102,11 @@ def main():
             print(f'You lose, loser!, the word was {word}')
             break
         play.drawing(lives)
-        guess = input("Guess a letter:")
+        guess = input("Guess a letter: ")
         play.store_guesses(guess.lower())
         play.is_guess_in_word(guess, word)
         # play.check_win(word)
-        if play.check_win(word) == False:
+        if play.check_win(word, lives) == False:
             break
 
     
