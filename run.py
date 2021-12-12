@@ -25,7 +25,7 @@ class game():
         """
         Define variables for class
         """
-        self.word = "yes"#word
+        self.word = "Correct"#word
         self.secret = ["_" for letter in self.word]
         self.lives = 8
         self.hangman = hangman
@@ -81,8 +81,10 @@ class game():
         """
         Checks if word has been guessed
         """
-        if self.guesses == word:
-            return True
+        for letter in word:
+            if letter in guesses:
+                print('smashed it')
+                return True
 
 def main():
     """
@@ -99,7 +101,7 @@ def main():
         lives = play.lives
         play.drawing(lives)
         guess = input("Guess a letter:")
-        play.store_guesses(guess)
+        play.store_guesses(guess.lower())
         # play.is_valid_guess(guess)
         # if play.is_valid_guess(guess) == True:
         #     play.is_guess_in_word(guess, word)
