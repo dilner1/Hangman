@@ -25,7 +25,7 @@ class game():
         """
         Define variables for class
         """
-        self.word = "yes"
+        self.word = word
         self.secret = list(len(word)*'_')
         self.lives = 8
         self.hangman = hangman
@@ -40,6 +40,7 @@ class game():
 
         joined_word = " ".join(self.secret)
         print(joined_word)
+        print(word)
         print(f'You have {self.lives} lives remaining.')
 
     def drawing(self, lives):

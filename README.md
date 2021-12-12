@@ -37,6 +37,9 @@ Problem: Letters would show in the order they were guesses when correct, not the
 Cause: f"{joined_word}\n" believe the \n
 Resolution: removed formating and \n
 
+Problem: Sometimes extra '_' appears on the hidden word
+Cause: If there is _ left at the end of a game they are added onto the next game's word
+Resolution: 
 
 ## Unfixed Bugs
 
