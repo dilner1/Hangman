@@ -25,7 +25,7 @@ class game():
         """
         Define variables for class
         """
-        self.word = "yes" #word
+        self.word = "yes"
         self.secret = list(len(word)*'_')
         self.lives = 8
         self.hangman = hangman
@@ -91,7 +91,7 @@ def main():
         play.show_word()
         lives = play.lives
         if lives == 0:
-            print('You lose, loser!')
+            print(f'You lose, loser!, the word was {word}')
             break
         play.drawing(lives)
         guess = input("Guess a letter:")
