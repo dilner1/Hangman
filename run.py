@@ -78,6 +78,12 @@ class game():
                         self.secret[i] = guess
                         
         print("")
+    def check_win(self, word):
+        if "_" not in self.secret:
+            print("yes queen")
+            return False
+            
+
 
 def main():
     """
@@ -97,8 +103,11 @@ def main():
         play.drawing(lives)
         guess = input("Guess a letter:")
         play.store_guesses(guess.lower())
-
         play.is_guess_in_word(guess, word)
+        # play.check_win(word)
+        if play.check_win(word) == False:
+            break
+
     
 print(logo)
 main()
