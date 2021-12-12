@@ -82,9 +82,8 @@ class game():
         Checks if word has been guessed
         """
         for letter in word:
-            if letter in guesses:
-                print('smashed it')
-                return True
+            print('smashed it')
+            return True
 
 def main():
     """
