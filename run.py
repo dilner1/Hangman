@@ -75,7 +75,8 @@ class game():
             for i in range(0, len(word)):
                     letter = word[i]
                     if letter == guess:
-                        self.secret[i] == guess
+                        self.secret[i] = guess
+                        
         print("")
 
 def main():
@@ -96,18 +97,8 @@ def main():
         play.drawing(lives)
         guess = input("Guess a letter:")
         play.store_guesses(guess.lower())
-        # play.is_valid_guess(guess)
-        # if play.is_valid_guess(guess) == True:
-        #     play.is_guess_in_word(guess, word)
-        play.is_guess_in_word(guess, word)
 
-        # play.check_win(word, guesses, lives)
-        # if True:
-        #     print("You win!")
-        #     break
-        # elif lives == 0:
-        #     print("You ran out of lives.\nYou lose, loser!")
-        #     break
+        play.is_guess_in_word(guess, word)
     
 print(logo)
 main()
