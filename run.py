@@ -94,7 +94,6 @@ def main():
     print("A word has been selected.\n")
     lives = play.lives
     guesses = play.guesses
-    play.show_word()
     while True:
         play.show_word()
         lives = play.lives
