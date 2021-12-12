@@ -33,6 +33,10 @@ Problem: Letters would show in the order they were guesses when correct, not the
 Cause: Did not have index for hidden word values
 Resolution: used range() and len() to find index
 
+Problem: Letters would show in the order they were guesses when correct, not their actual place in the word
+Cause: f"{joined_word}\n" believe the \n
+Resolution: removed formating and \n
+
 
 ## Unfixed Bugs
 
