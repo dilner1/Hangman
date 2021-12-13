@@ -67,12 +67,15 @@ class game():
         """
         Checks if guess is a valid
         """
-
+        guesses = self.guesses
         # write try / except
         try:
             guess.isalpha()
-        except Exception:
-            pass
+        except ValueError as e:
+            print(e)
+        except Exception as e:
+            if guess in guesses:
+                print(e)
 
     def is_guess_in_word(self, guess, word):
         """
