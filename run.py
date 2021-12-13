@@ -59,7 +59,9 @@ class game():
             guessed_words.append(guess)
             incorrect_guesses_list = " ".join(guessed_words)
             return incorrect_guesses_list
-
+        else:
+            incorrect_guesses_list = " ".join(guessed_words)
+            return incorrect_guesses_list
 
     def is_valid_guess(guess):
         """
@@ -83,7 +85,7 @@ class game():
         print("")
     def check_win(self, word, lives):
         if "_" not in self.secret:
-            print(f"Congratulations, you have guessed the word with {lives} lives left\n")
+            print(f"Congratulations, you have guessed the word with {lives} lives left.\n The letter was {word}")
             return False
             
 
@@ -106,13 +108,13 @@ def main():
             break
         play.drawing(lives)
         guess = input("Guess a letter: ")
-        play.store_guesses(guess.lower())
+        # play.store_guesses(guess.lower())
 
-        thing = play.store_guesses(guess.lower())
+        letters = play.store_guesses(guess.lower())
         play.is_guess_in_word(guess, word)
         if play.check_win(word, lives) == False:
             break
-        print(f"so far you have guessed: {thing}\n")
+        print(f"so far you have guessed: {letters}\n")
 
     
 print(logo)
