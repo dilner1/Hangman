@@ -111,7 +111,7 @@ def main():
         # play.store_guesses(guess.lower())
 
         letters = play.store_guesses(guess.lower())
-        play.is_guess_in_word(guess, word)
+        play.is_guess_in_word(guess.lower(), word)
         if play.check_win(word, lives) == False:
             break
         print(f"so far you have guessed: {letters}\n")
