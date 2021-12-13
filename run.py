@@ -72,16 +72,15 @@ class game():
         try:
             if not guess.isalpha():
                 raise ValueError(
-                    f"{guess} is valid"
+                    f"{guess} is not valid"
                 )
-        except ValueError as e:
-            print(e)
-        except Exception:
-            if guess.isalpha() == False:
-                print("Wrong value, try again\n")
+                return False
         except Exception as e:
             if guess in guesses:
-                print(e)
+                print(f"Error {e}. You have already selected this letter.")
+                return False
+
+        return True
 
     def is_guess_in_word(self, guess, word):
         """
@@ -124,13 +123,14 @@ def main():
         play.drawing(lives)
         guess = input("Guess a letter: ")
 
-        play.is_valid_guess(guess)
+        if play.is_valid_guess(guess) == True:
+            letters = play.store_guesses(guess.lower())
+            play.is_guess_in_word(guess.lower(), word)
+            if play.check_win(word, lives) == False:
+                break
+            print(f"so far you have guessed: {letters}\n")
 
-        letters = play.store_guesses(guess.lower())
-        play.is_guess_in_word(guess.lower(), word)
-        if play.check_win(word, lives) == False:
-            break
-        print(f"so far you have guessed: {letters}\n")
+        
     
 print(logo)
 main()
