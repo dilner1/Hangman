@@ -70,8 +70,10 @@ class game():
         guesses = self.guesses
         # write try / except - not working
         try:
-            if guess.isalpha():
-                print(f"{guess} is valid")
+            if not guess.isalpha():
+                raise ValueError(
+                    f"{guess} is valid"
+                )
         except ValueError as e:
             print(e)
         except Exception:
