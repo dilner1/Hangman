@@ -68,11 +68,15 @@ class game():
         Checks if guess is a valid
         """
         guesses = self.guesses
-        # write try / except
+        # write try / except - not working
         try:
-            guess.isalpha()
+            if guess.isalpha():
+                print(f"{guess} is valid")
         except ValueError as e:
             print(e)
+        except Exception:
+            if guess.isalpha() == False:
+                print("Wrong value, try again\n")
         except Exception as e:
             if guess in guesses:
                 print(e)
