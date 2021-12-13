@@ -35,7 +35,7 @@ class game():
 
     def show_word(self):
         """
-        Fetch word and show on screen
+        Takes selected word to be hidden and replaces letters
         """
 
         joined_word = " ".join(self.secret)
@@ -45,19 +45,21 @@ class game():
 
     def drawing(self, lives):
         """
-        Prints takes the players lives and prints out connected picture
+        Takes the players lives and prints out connected picture
         """
         print(hangman[lives])
 
     def store_guesses(self, guess):
         """
-        Takes guessed letter and stores it
+        Takes guessed letter, if incorrect it is stored for user to view
         """
         guessed_words = self.guesses
-        guessed_words.append(guess)
-        together = " ".join(guessed_words)
+        word = self.word
+        if guess not in word.lower():
+            guessed_words.append(guess)
+            incorrect_guesses_list = " ".join(guessed_words)
+            return incorrect_guesses_list
 
-        print(f"so far you have guessed: {together}")
 
     def is_valid_guess(guess):
         """
@@ -81,7 +83,7 @@ class game():
         print("")
     def check_win(self, word, lives):
         if "_" not in self.secret:
-            print(f"Congratulations, you have guessed the word with {lives} left\n")
+            print(f"Congratulations, you have guessed the word with {lives} lives left\n")
             return False
             
 
@@ -95,6 +97,7 @@ def main():
     print("A word has been selected.\n")
     lives = play.lives
     guesses = play.guesses
+
     while True:
         play.show_word()
         lives = play.lives
@@ -104,10 +107,12 @@ def main():
         play.drawing(lives)
         guess = input("Guess a letter: ")
         play.store_guesses(guess.lower())
+
+        thing = play.store_guesses(guess.lower())
         play.is_guess_in_word(guess, word)
-        # play.check_win(word)
         if play.check_win(word, lives) == False:
             break
+        print(f"so far you have guessed: {thing}\n")
 
     
 print(logo)
