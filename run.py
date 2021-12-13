@@ -63,24 +63,23 @@ class game():
             incorrect_guesses_list = " ".join(guessed_words)
             return incorrect_guesses_list
 
-    def is_valid_guess(self, guess):
-        """
-        Checks if guess is a valid
-        """
-        guesses = self.guesses
-        # write try / except - not working
-        try:
-            if not guess.isalpha():
-                raise ValueError(
-                    f"{guess} is not valid"
-                )
-                return False
-        except Exception as e:
-            if guess in guesses:
-                print(f"Error {e}. You have already selected this letter.")
-                return False
-
-        return True
+    # def is_valid_guess(self):
+    #     """
+    #     Checks if guess is a valid
+    #     """
+        
+    #     guesses = self.guesses
+    #     # write try / except - not working
+    #     try:
+    #         guess = input("Guess a letter: ")
+    #         guess.lower()
+    #         if guess.isalpha():
+    #             return guess
+    #     except ValueError as e:
+    #         print(e)
+    #     except AttributeError as e:
+    #         print(e)
+    
 
     def is_guess_in_word(self, guess, word):
         """
@@ -121,16 +120,22 @@ def main():
             print(f'You lose, loser!, the word was {word}')
             break
         play.drawing(lives)
-        guess = input("Guess a letter: ")
+        # guess = input("Guess a letter: ")
 
-        if play.is_valid_guess(guess) == True:
-            letters = play.store_guesses(guess.lower())
-            play.is_guess_in_word(guess.lower(), word)
-            if play.check_win(word, lives) == False:
-                break
-            print(f"so far you have guessed: {letters}\n")
+        # if play.is_valid_guess(guess) == True:
+        #     letters = play.store_guesses(guess.lower())
+        #     play.is_guess_in_word(guess.lower(), word)
+        #     if play.check_win(word, lives) == False:
+        #         break
+        #     print(f"so far you have guessed: {letters}\n")
+        # 
 
+        guess = play.is_valid_guess()
+        letters = play.store_guesses(guess.lower())
+        play.is_guess_in_word(guess.lower(), word)
+        if play.check_win(word, lives) == False:
+            break
+        print(f"so far you have guessed: {letters}\n")
         
-    
 print(logo)
 main()
