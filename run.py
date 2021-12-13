@@ -94,7 +94,7 @@ class game():
         print("")
     def check_win(self, word, lives):
         if "_" not in self.secret:
-            print(f"Congratulations, you have guessed the word with {lives} lives left.\n The letter was {word}")
+            print(f"Congratulations, you have guessed the word with {lives} lives left.\nThe letter was {word}")
             return False
             
 

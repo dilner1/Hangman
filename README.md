@@ -39,7 +39,11 @@ Resolution: removed formating and \n
 
 Problem: Sometimes extra '_' appears on the hidden word
 Cause: If there is _ left at the end of a game they are added onto the next game's word
-Resolution: 
+Resolution: Problem only occured when providing a fixed word to guess, which I did in testing, when I changed this to randome each time as it should be the problem dissapeared
+
+Problem: try / except error handling not catching incorrect values
+Cause:
+Resolution:
 
 ## Unfixed Bugs
 
