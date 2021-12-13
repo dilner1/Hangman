@@ -63,10 +63,16 @@ class game():
             incorrect_guesses_list = " ".join(guessed_words)
             return incorrect_guesses_list
 
-    def is_valid_guess(guess):
+    def is_valid_guess(self, guess):
         """
         Checks if guess is a valid
         """
+
+        # write try / except
+        try:
+            guess.isalpha()
+        except Exception:
+            pass
 
     def is_guess_in_word(self, guess, word):
         """
@@ -108,14 +114,14 @@ def main():
             break
         play.drawing(lives)
         guess = input("Guess a letter: ")
-        # play.store_guesses(guess.lower())
+
+        play.is_valid_guess(guess)
 
         letters = play.store_guesses(guess.lower())
         play.is_guess_in_word(guess.lower(), word)
         if play.check_win(word, lives) == False:
             break
         print(f"so far you have guessed: {letters}\n")
-
     
 print(logo)
 main()
