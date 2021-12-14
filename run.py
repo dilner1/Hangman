@@ -76,6 +76,11 @@ class game():
         elif letter_guess in self.guesses or letter_guess in self.secret:
             print(f'You have already tried letter {letter_guess}, please try another letter')
             return False
+
+        elif len(letter_guess) >= 2:
+            length = len(letter_guess)
+            print(f'Your tried to guess {length} letters. You can only type one at a time.')
+            return False
         
         elif letter_guess.isalpha():
             return True
