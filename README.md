@@ -57,6 +57,7 @@ Test with users see what they thought of it
 
 if you want to play this locally:
 Cloning project and run locally
+pip install colorama
 
 copy clone link, go to terminal or commanand line of choice, have git installed and copy URL
 
