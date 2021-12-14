@@ -1,2 +1,3 @@
 # Your requirements go here
 pip install colorama
+colorama == 0.4.4
