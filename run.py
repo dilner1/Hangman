@@ -104,8 +104,6 @@ class game():
         if "_" not in self.secret:
             print(f"Congratulations, you have guessed the word with {lives} lives left.\nThe letter was {word}")
             return False
-            
-
 
 def main():
     """
@@ -130,9 +128,8 @@ def main():
             letters = play.store_guesses(guess.lower())
             play.is_guess_in_word(guess.lower(), word)
             if play.check_win(word, lives) == False:
-                break
+                return
             print(f"so far you have guessed: {letters}\n")
-
         
 print(logo)
 main()
