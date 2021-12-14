@@ -106,6 +106,9 @@ class game():
             return False
     
     def restart_game(self):
+        """
+        Asks if player wants to continue and allows restart if so
+        """
         restart = input('do you want to play again: Y/N?')
         if restart == 'N':
             return False
