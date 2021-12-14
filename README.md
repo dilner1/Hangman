@@ -45,9 +45,29 @@ Problem: try / except error handling not catching incorrect values
 Cause:
 Resolution:
 
+How I tested how user can break game - give user feedback that tells them what to do
+
+Test with users see what they thought of it
+
+
+
 ## Unfixed Bugs
 
 # Deployment
+
+if you want to play this locally:
+Cloning project and run locally
+
+copy clone link, go to terminal or commanand line of choice, have git installed and copy URL
+
+when project runs 
+
+no need for pip install
+
+python3 run.py
+
+Deploy to Herokou:
+
 
 # Credits
 

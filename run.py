@@ -3,7 +3,6 @@ import easyWords
 import drawing
 
 all_easy_words = easyWords.easy_word_list
-word = random.choice(all_easy_words)
 hangman = drawing.drawing_dictionary
 
 
@@ -25,13 +24,16 @@ class game():
         """
         Define variables for class
         """
-        self.word = word
-        self.secret = list(len(word)*'_')
+        self.word = self.set_word()
+        self.secret = list(len(self.word)*'_')
         self.lives = 8
         self.hangman = hangman
         self.guesses = []
 
         print("Game starting...\n")
+
+    def set_word(self):
+        return random.choice(all_easy_words)
 
     def show_word(self):
         """
@@ -40,7 +42,6 @@ class game():
 
         joined_word = " ".join(self.secret)
         print(joined_word)
-        print(word)
         print(f'You have {self.lives} lives remaining.')
 
     def drawing(self, lives):
@@ -54,8 +55,7 @@ class game():
         Takes guessed letter, if incorrect it is stored for user to view
         """
         guessed_words = self.guesses
-        word = self.word
-        if guess not in word.lower():
+        if guess not in self.word.lower():
             guessed_words.append(guess)
             incorrect_guesses_list = " ".join(guessed_words)
             return incorrect_guesses_list
@@ -85,24 +85,24 @@ class game():
         elif letter_guess.isalpha():
             return True
 
-    def is_guess_in_word(self, guess, word):
+    def is_guess_in_word(self, guess):
         """
         Checks if guess matches a letter in the hidden word, finds the index and reveals letter in secret word
         """
-        if guess.lower() not in word.lower():
+        if guess.lower() not in self.word.lower():
             self.lives -= 1
             print("Incorrect, you lost a life.\n")
         else:
             print("You guessed a letter correctly.\n")
-            for i in range(0, len(word)):
-                    letter = word[i]
+            for i in range(0, len(self.word)):
+                    letter = self.word[i]
                     if letter == guess:
                         self.secret[i] = guess
                         
         print("")
-    def check_win(self, word, lives):
+    def check_win(self, lives):
         if "_" not in self.secret:
-            print(f"Congratulations, you have guessed the word with {lives} lives left.\nThe letter was {word}")
+            print(f"Congratulations, you have guessed the word with {lives} lives left.\nThe letter was {self.word}")
             return False
     
     def restart_game(self):
@@ -136,8 +136,8 @@ def main():
 
         if play.is_valid_guess(guess) == True:
             letters = play.store_guesses(guess.lower())
-            play.is_guess_in_word(guess.lower(), word)
-            if play.check_win(word, lives) == False:
+            play.is_guess_in_word(guess.lower())
+            if play.check_win(lives) == False:
                 if play.restart_game() == False:
                     break
                 else:
