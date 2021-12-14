@@ -110,7 +110,8 @@ class game():
         if restart == 'N':
             return False
         elif restart == 'Y':
-                main()
+            main()
+
 
 def main():
     """
@@ -138,7 +139,6 @@ def main():
                 if play.restart_game() == False:
                     break
             print(f"so far you have guessed: {letters}\n")
-
         
 print(logo)
 main()
