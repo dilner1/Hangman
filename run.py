@@ -1,4 +1,7 @@
 import random
+import colorama
+from colorama import Fore, Back
+
 import easyWords
 import drawing
 
@@ -10,7 +13,7 @@ done = False
 
 # difficulty = ""
 
-logo = ("""
+logo = (Fore.YELLOW + """
     __  __                                      
    / / / /___ _____  ____ _____ ___  ____ _____ 
   / /_/ / __ `/ __ \/ __ `/ __ `__ \/ __ `/ __ \\
@@ -70,16 +73,19 @@ class game():
 
         letter_guess = guess.lower()
         if letter_guess.isalpha() == False:
-            print(f"{guess} is not a letter. You must type a letter.")
+            print(f"{Back.RED}{guess} is not a letter. You must type a letter.")
+            print(Back.RESET)
             return False
 
         elif letter_guess in self.guesses or letter_guess in self.secret:
-            print(f'You have already tried letter {letter_guess}, please try another letter')
+            print(f"{Back.RED}You have already tried letter {letter_guess}, please try another letter.")
+            print(Back.RESET)
             return False
 
         elif len(letter_guess) >= 2:
             length = len(letter_guess)
-            print(f'Your tried to guess {length} letters. You can only type one at a time.')
+            print(f"{Back.RED}Your tried to guess {length} letters. You can only type one at a time.")
+            print(Back.RESET)
             return False
         
         elif letter_guess.isalpha():
@@ -91,9 +97,11 @@ class game():
         """
         if guess.lower() not in self.word.lower():
             self.lives -= 1
-            print("Incorrect, you lost a life.\n")
+            print(f"{Fore.MAGENTA}Incorrect, you lost a life.")
+            print(Fore.YELLOW)
         else:
-            print("You guessed a letter correctly.\n")
+            print(f"{Fore.GREEN}You guessed a letter correctly.")
+            print(Fore.YELLOW)
             for i in range(0, len(self.word)):
                     letter = self.word[i]
                     if letter == guess:
