@@ -63,16 +63,18 @@ class game():
             incorrect_guesses_list = " ".join(guessed_words)
             return incorrect_guesses_list
 
-    def is_valid_guess(self):
+    def is_valid_guess(self, guess):
         """
         Checks if guess is a valid
         """
-        guess = input("Guess a letter: ")
+
         letter_guess = guess.lower()
-        if letter_guess.isalpha():
-            return guess
-        elif letter_guess.isalpha() == False:
+        if letter_guess.isalpha() == False:
             print(f"{guess} is invalid. Short your shit out.")
+            return False
+        
+        elif letter_guess.isalpha():
+            return True
 
     def is_guess_in_word(self, guess, word):
         """
@@ -113,22 +115,15 @@ def main():
             print(f'You lose, loser!, the word was {word}')
             break
         play.drawing(lives)
-        # guess = input("Guess a letter: ")
+        guess = input("Guess a letter: ")
 
-        # if play.is_valid_guess() == True:
-        #     guess == play.is_valid_guess()
-        #     letters = play.store_guesses(guess.lower())
-        #     play.is_guess_in_word(guess.lower(), word)
-        #     if play.check_win(word, lives) == False:
-        #         break
-        #     print(f"so far you have guessed: {letters}\n")
+        if play.is_valid_guess(guess) == True:
+            letters = play.store_guesses(guess.lower())
+            play.is_guess_in_word(guess.lower(), word)
+            if play.check_win(word, lives) == False:
+                break
+            print(f"so far you have guessed: {letters}\n")
 
-        guess = play.is_valid_guess()
-        letters = play.store_guesses(guess.lower())
-        play.is_guess_in_word(guess.lower(), word)
-        if play.check_win(word, lives) == False:
-            break
-        print(f"so far you have guessed: {letters}\n")
         
 print(logo)
 main()
