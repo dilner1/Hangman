@@ -70,7 +70,11 @@ class game():
 
         letter_guess = guess.lower()
         if letter_guess.isalpha() == False:
-            print(f"{guess} is invalid. Short your shit out.")
+            print(f"{guess} is not a letter. You must type a letter.")
+            return False
+
+        elif letter_guess in self.guesses or letter_guess in self.secret:
+            print(f'You have already tried letter {letter_guess}, please try another letter')
             return False
         
         elif letter_guess.isalpha():
@@ -78,7 +82,7 @@ class game():
 
     def is_guess_in_word(self, guess, word):
         """
-        Checks if guess matches a letter in the hidden word
+        Checks if guess matches a letter in the hidden word, finds the index and reveals letter in secret word
         """
         if guess.lower() not in word.lower():
             self.lives -= 1
