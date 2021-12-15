@@ -58,13 +58,14 @@ class game():
         Takes guessed letter, if incorrect it is stored for user to view
         """
         guessed_words = self.guesses
+        self.incorrect_guesses_list = " ".join(guessed_words)
         if guess not in self.word.lower():
             guessed_words.append(guess)
-            incorrect_guesses_list = " ".join(guessed_words)
-            return incorrect_guesses_list
+            
+            return self.incorrect_guesses_list
         else:
-            incorrect_guesses_list = " ".join(guessed_words)
-            return incorrect_guesses_list
+            self.incorrect_guesses_list = " ".join(guessed_words)
+            return self.incorrect_guesses_list
 
     def is_valid_guess(self, guess):
         """
@@ -74,15 +75,18 @@ class game():
         letter_guess = guess.lower()
         if letter_guess.isalpha() == False:
             print(f"{Back.RED}{guess} is not a letter. You must type a letter.{Back.RESET}")
+            self.update_letters()
             return False
 
         elif letter_guess in self.guesses or letter_guess in self.secret:
             print(f"{Back.RED}You have already tried letter {letter_guess}, please try another letter.{Back.RESET}")
+            self.update_letters()
             return False
 
         elif len(letter_guess) >= 2:
             length = len(letter_guess)
             print(f"{Back.RED}Your tried to guess {length} letters. You can only type one at a time.{Back.RESET}")
+            self.update_letters()
             return False
         
         elif letter_guess.isalpha():
@@ -94,11 +98,9 @@ class game():
         """
         if guess.lower() not in self.word.lower():
             self.lives -= 1
-            print(f"{Fore.MAGENTA}Incorrect, you lost a life.")
-            print(Fore.YELLOW)
+            print(f"{Fore.MAGENTA}Incorrect, you lost a life.{Fore.YELLOW}")
         else:
-            print(f"{Fore.GREEN}You guessed a letter correctly.")
-            print(Fore.YELLOW)
+            print(f"{Fore.GREEN}You guessed a letter correctly.{Fore.YELLOW}")
             for i in range(0, len(self.word)):
                     letter = self.word[i]
                     if letter == guess:
@@ -116,9 +118,14 @@ class game():
         """
         restart = input('do you want to play again: Y/N?')
         if restart == 'N':
+            print('Game ending, thanks for playing :)')
             return False
         elif restart == 'Y':
+            print("Restarting game...\n")
             return True
+
+    def update_letters(self):
+        print(f"so far you have guessed: {self.guesses}\n")
 
 def main():
     """
@@ -147,7 +154,7 @@ def main():
                     break
                 else:
                     exec(open("./run.py").read())
-            print(f"so far you have guessed: {letters}\n")
+            play.update_letters()
         
 print(logo)
 main()
