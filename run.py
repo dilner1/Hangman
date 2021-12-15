@@ -73,19 +73,16 @@ class game():
 
         letter_guess = guess.lower()
         if letter_guess.isalpha() == False:
-            print(f"{Back.RED}{guess} is not a letter. You must type a letter.")
-            print(Back.RESET)
+            print(f"{Back.RED}{guess} is not a letter. You must type a letter.{Back.RESET}")
             return False
 
         elif letter_guess in self.guesses or letter_guess in self.secret:
-            print(f"{Back.RED}You have already tried letter {letter_guess}, please try another letter.")
-            print(Back.RESET)
+            print(f"{Back.RED}You have already tried letter {letter_guess}, please try another letter.{Back.RESET}")
             return False
 
         elif len(letter_guess) >= 2:
             length = len(letter_guess)
-            print(f"{Back.RED}Your tried to guess {length} letters. You can only type one at a time.")
-            print(Back.RESET)
+            print(f"{Back.RED}Your tried to guess {length} letters. You can only type one at a time.{Back.RESET}")
             return False
         
         elif letter_guess.isalpha():
