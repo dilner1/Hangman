@@ -112,6 +112,7 @@ class game():
         if "_" not in self.secret:
             print(f"Congratulations, you have guessed the word with {lives} lives left.\nThe letter was {self.word}")
             return False
+        
     
     def restart_game(self):
         """
@@ -143,7 +144,7 @@ def main():
         lives = play.lives
         if lives == 0:
             print(f'You lose, loser!, the word was {word}')
-            break
+            play.restart_game()
         play.drawing(lives)
         guess = input("Guess a letter: ")
 
