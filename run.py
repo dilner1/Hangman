@@ -43,7 +43,6 @@ class game():
         """
         Takes selected word to be hidden and replaces letters
         """
-
         joined_word = " ".join(self.secret)
         print(joined_word)
         print(f'You have {self.lives} lives remaining.')
@@ -58,21 +57,17 @@ class game():
         """
         Takes guessed letter, if incorrect it is stored for user to view
         """
-        # self.guesses = self.guesses
-        # self.incorrect_guesses_list = " ".join(self.guesses)
         if guess not in self.word.lower():
 
             self.guesses.append(guess)
             return self.incorrect_guesses_list
         else:
-            # self.incorrect_guesses_list = " ".join(self.guesses)
             return self.incorrect_guesses_list
 
     def is_valid_guess(self, guess):
         """
         Checks if guess is a valid
         """
-
         letter_guess = guess.lower()
         if letter_guess.isalpha() == False:
             print(f"{Back.RED}{guess} is not a letter. You must type a letter.{Back.RESET}\n")
@@ -105,9 +100,9 @@ class game():
             for i in range(0, len(self.word)):
                     letter = self.word[i]
                     if letter == guess:
-                        self.secret[i] = guess
-                        
+                        self.secret[i] = guess               
         print("")
+
     def check_win(self, lives):
         if "_" not in self.secret:
             print(f"Congratulations, you have guessed the word with {lives} lives left.\nThe letter was {self.word}.\n")
@@ -117,7 +112,6 @@ class game():
             print(f'You lose!, the word was {self.word}')
             return False
         
-    
     def restart_game(self):
         """
         Asks if player wants to continue and allows restart if so
@@ -128,10 +122,9 @@ class game():
             return False
         elif restart == 'y':
             print("Restarting game...\n")
-            return True
+            exec(open("./run.py").read())
         else:
             print("You need to type Y or N.\n")
-
 
     def update_letters(self):
         print(f"so far you have guessed: {self.guesses} \n")
@@ -149,23 +142,17 @@ def main():
     while True:
         play.show_word()
         lives = play.lives
-        # if lives == 0:
-        #     print(f'You lose!, the word was {word}')
-        #     play.restart_game()
-
-        
-        guess = input("Guess a letter: ")
         play.drawing(lives)
+        guess = input("Guess a letter: ")
+
         if play.is_valid_guess(guess) == True:
             letters = play.store_guesses(guess.lower())
             play.is_guess_in_word(guess.lower())
             if play.check_win(lives) == False:
                 if play.restart_game() == False:
                     break
-                elif play.restart_game() == True:
-                    exec(open("./run.py").read())
-                else:
-                    play.restart_game()
+                # else:
+                #     play.restart_game()
             play.update_letters()
         
 print(logo)
