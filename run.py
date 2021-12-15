@@ -13,7 +13,7 @@ done = False
 
 # difficulty = ""
 
-logo = (Fore.YELLOW + """
+logo = (Fore.GREEN + """
     __  __                                      
    / / / /___ _____  ____ _____ ___  ____ _____ 
   / /_/ / __ `/ __ \/ __ `/ __ `__ \/ __ `/ __ \\
@@ -34,7 +34,7 @@ class game():
         self.guesses = []
         self.incorrect_guesses_list = " ".join(self.guesses)
 
-        print("Game starting...\n")
+        print(f"{Fore.YELLOW}Game starting...\n")
 
     def set_word(self):
         return random.choice(all_easy_words)
@@ -110,7 +110,7 @@ class game():
         print("")
     def check_win(self, lives):
         if "_" not in self.secret:
-            print(f"Congratulations, you have guessed the word with {lives} lives left.\nThe letter was {self.word}")
+            print(f"Congratulations, you have guessed the word with {lives} lives left.\nThe letter was {self.word}.\n")
             return False
         elif self.lives == -1:
             self.drawing(lives)
