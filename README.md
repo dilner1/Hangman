@@ -2,23 +2,46 @@
 
 # Features
 
-# Features
+![alt text](assets/images/initialising.png)
+
+![alt text](assets/images/correct.png)
+
+![alt text](assets/images/incorrect.png)
+
+![alt text](assets/images/win.png)
+
+Error handling
+![alt text](assets/images/err_invalid.png)
+
+![alt text](assets/images/err_let_selected.png)
+
+![alt text](assets/images/err_multiple.png)
 
 ## Features Left to Implement
 
-# Testing
+Difficulty
 
-## Validator Testing
+# Testing
 
 ## Implementation
 
-Implementation: What I am implementing
+Error handling
+Implementation: Tests for user input errors
+Test: try game multiple times, trying capitol and lower case, symbols, numbers and multiple letters.
+Result: Caught all errors and passed correct inputs
+Verdict: Success
 
-Test: How I tested it
+ease of use
+Implementation: 
+Test: Users tested game, mostly none had experience with a comman line game
+Result: Game worked but some found it wasn't always clear what was happening
+Verdict: Works well but added color as well as more spacing to improve ease of readability.
 
-Result: What happened
 
-Verdict: did it work?
+
+## Validator Testing
+
+
 
 ## bugs
 Problem: When guessing a letter lives would be taken off depending on number of letters in word. This would happen even if one letter was guessed correctly.
@@ -49,12 +72,11 @@ How I tested how user can break game - give user feedback that tells them what t
 
 Test with users see what they thought of it
 
-
-
 ## Unfixed Bugs
 
 # Deployment
 
+## Run locally
 if you want to play this locally:
 Cloning project and run locally
 pip install colorama
@@ -63,11 +85,14 @@ copy clone link, go to terminal or commanand line of choice, have git installed 
 
 when project runs 
 
-no need for pip install
+pip install colorama 'pip install colorama'
 
 python3 run.py
 
-Deploy to Herokou:
+## Deploy to Herokou
+
+typed pip3 freeze > requirements.txt to add files to requirements
+
 
 
 # Credits
