@@ -112,6 +112,10 @@ class game():
         if "_" not in self.secret:
             print(f"Congratulations, you have guessed the word with {lives} lives left.\nThe letter was {self.word}")
             return False
+        elif self.lives == -1:
+            self.drawing(lives)
+            print(f'You lose!, the word was {self.word}')
+            return False
         
     
     def restart_game(self):
@@ -125,6 +129,9 @@ class game():
         elif restart == 'y':
             print("Restarting game...\n")
             return True
+        else:
+            print("You need to type Y or N.\n")
+
 
     def update_letters(self):
         print(f"so far you have guessed: {self.guesses} \n")
@@ -142,20 +149,24 @@ def main():
     while True:
         play.show_word()
         lives = play.lives
-        if lives == 0:
-            print(f'You lose!, the word was {word}')
-            play.restart_game()
-        play.drawing(lives)
+        # if lives == 0:
+        #     print(f'You lose!, the word was {word}')
+        #     play.restart_game()
+        
+        # play.drawing(lives)
         guess = input("Guess a letter: ")
 
         if play.is_valid_guess(guess) == True:
             letters = play.store_guesses(guess.lower())
             play.is_guess_in_word(guess.lower())
             if play.check_win(lives) == False:
+                play.drawing(lives)
                 if play.restart_game() == False:
                     break
-                else:
+                elif play.restart_game() == True:
                     exec(open("./run.py").read())
+                else:
+                    play.restart_game()
             play.update_letters()
         
 print(logo)
