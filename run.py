@@ -143,7 +143,7 @@ def main():
         play.show_word()
         lives = play.lives
         if lives == 0:
-            print(f'You lose, loser!, the word was {word}')
+            print(f'You lose!, the word was {word}')
             play.restart_game()
         play.drawing(lives)
         guess = input("Guess a letter: ")
