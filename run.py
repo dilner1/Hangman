@@ -32,6 +32,7 @@ class game():
         self.lives = 8
         self.hangman = hangman
         self.guesses = []
+        self.incorrect_guesses_list = " ".join(self.guesses)
 
         print("Game starting...\n")
 
@@ -57,14 +58,14 @@ class game():
         """
         Takes guessed letter, if incorrect it is stored for user to view
         """
-        guessed_words = self.guesses
-        self.incorrect_guesses_list = " ".join(guessed_words)
+        # self.guesses = self.guesses
+        # self.incorrect_guesses_list = " ".join(self.guesses)
         if guess not in self.word.lower():
-            guessed_words.append(guess)
-            
+
+            self.guesses.append(guess)
             return self.incorrect_guesses_list
         else:
-            self.incorrect_guesses_list = " ".join(guessed_words)
+            # self.incorrect_guesses_list = " ".join(self.guesses)
             return self.incorrect_guesses_list
 
     def is_valid_guess(self, guess):
@@ -74,18 +75,18 @@ class game():
 
         letter_guess = guess.lower()
         if letter_guess.isalpha() == False:
-            print(f"{Back.RED}{guess} is not a letter. You must type a letter.{Back.RESET}")
+            print(f"{Back.RED}{guess} is not a letter. You must type a letter.{Back.RESET}\n")
             self.update_letters()
             return False
 
         elif letter_guess in self.guesses or letter_guess in self.secret:
-            print(f"{Back.RED}You have already tried letter {letter_guess}, please try another letter.{Back.RESET}")
+            print(f"{Back.RED}You have already tried letter {letter_guess}, please try another letter.{Back.RESET}\n")
             self.update_letters()
             return False
 
         elif len(letter_guess) >= 2:
             length = len(letter_guess)
-            print(f"{Back.RED}Your tried to guess {length} letters. You can only type one at a time.{Back.RESET}")
+            print(f"{Back.RED}Your tried to guess {length} letters. You can only type one at a time.{Back.RESET}\n")
             self.update_letters()
             return False
         
@@ -98,9 +99,9 @@ class game():
         """
         if guess.lower() not in self.word.lower():
             self.lives -= 1
-            print(f"{Fore.MAGENTA}Incorrect, you lost a life.{Fore.YELLOW}")
+            print(f"{Fore.MAGENTA}Incorrect, you lost a life.{Fore.YELLOW}\n")
         else:
-            print(f"{Fore.GREEN}You guessed a letter correctly.{Fore.YELLOW}")
+            print(f"{Fore.GREEN}You guessed a letter correctly.{Fore.YELLOW}\n")
             for i in range(0, len(self.word)):
                     letter = self.word[i]
                     if letter == guess:
@@ -116,16 +117,16 @@ class game():
         """
         Asks if player wants to continue and allows restart if so
         """
-        restart = input('do you want to play again: Y/N?')
-        if restart == 'N':
-            print('Game ending, thanks for playing :)')
+        restart = input('do you want to play again: Y/N?').lower()
+        if restart == 'n':
+            print('Game ending - thanks for playing :)')
             return False
-        elif restart == 'Y':
+        elif restart == 'y':
             print("Restarting game...\n")
             return True
 
     def update_letters(self):
-        print(f"so far you have guessed: {self.guesses}\n")
+        print(f"so far you have guessed: {self.guesses} \n")
 
 def main():
     """
