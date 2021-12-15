@@ -152,15 +152,14 @@ def main():
         # if lives == 0:
         #     print(f'You lose!, the word was {word}')
         #     play.restart_game()
-        
-        # play.drawing(lives)
-        guess = input("Guess a letter: ")
 
+        
+        guess = input("Guess a letter: ")
+        play.drawing(lives)
         if play.is_valid_guess(guess) == True:
             letters = play.store_guesses(guess.lower())
             play.is_guess_in_word(guess.lower())
             if play.check_win(lives) == False:
-                play.drawing(lives)
                 if play.restart_game() == False:
                     break
                 elif play.restart_game() == True:
