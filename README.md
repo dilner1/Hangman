@@ -52,7 +52,6 @@ Surface
 
 ![pre production flow chart](assets/images/flowchart.png)
 
-
 ## Features Left to Implement
 
 Difficulty
@@ -97,31 +96,22 @@ Resolution: Problem only occured when providing a fixed word to guess, which I d
 # Deployment
 
 ## Run locally
-if you want to play this locally:
-Cloning project and run locally
-pip install colorama
-
-copy clone link, go to terminal or commanand line of choice, have git installed and copy URL
-
-when project runs 
-
-pip install colorama 'pip install colorama'
-
-python3 run.py
+1.	 Add Github extension to browser.
+2.	On the Github repository click Github extension button.
+3.	Install colorama by typing  'pip install colorama' into terminal.
+4.	Run program by typing ‘python3 run.py’ into terminal.
 
 ## Deploy to Herokou
-1.	Create a Herokou account
-2.	Choose App name and region, the name must be unique
-3.	Click ‘Create App’
-4.	Adjust settings before deployment
-5.	Go to config vars,  type PORT in key field, type 8000 in value field – click add.
-6.	Add buildbacks, first select Python, save changes. Click nodejs and save, make sure python sits above nodejs – drag into correct order if this is wrong.
-7.	Go to deploy section, select github to connect – you then need to type in the github repository name.
-8.	Click automatic deploy or manual deploy, automatic will be best if you plan on making any changes to the repository as it automatically updates Herokou.
-9.	Wait for deployment link to generage – a view button will appear
-10.	Make sure you have the latest version of the app on github has been pushed.
-
-typed pip3 freeze > requirements.txt to add files to requirements
+1. Make sure you have the latest version of the app on github has been pushed, if the requirements folder is empy you can type 'typed pip3 freeze > requirements.txt' to atomatically add files in Github terminal
+2.	Create a Herokou account.
+3.	Choose App name and region, the name must be unique.
+4.	Click ‘Create App’.
+5.	Adjust settings before deployment.
+6.	Go to config vars,  type PORT in key field, type 8000 in value field – click add.
+7.	Add buildbacks, first select Python, save changes. Click nodejs and save, make sure python sits above nodejs – drag into correct order if this is wrong.
+8.	Go to deploy section, select github to connect – you then need to type in the github repository name.
+9.	Click automatic deploy or manual deploy, automatic will be best if you plan on making any changes to the repository as it automatically updates Herokou.
+10.	Wait for deployment link to generage – a view button will appear.
 
 # Credits, content and media
 Referenced these youtube tutorials to get an understanding of different aproaches to building Hangman
