@@ -17,6 +17,33 @@ Error handling
 
 ![alt text](assets/images/err_multiple.png)
 
+## UX Design
+
+Strategy
+  - who: Any ages, english speakers (could be adjusted for the future for other languages)
+  - what: An interactive game of hangman
+  - where: To be played locally on git hub or command line, or deployed on Herokou
+  - when: Free time at home, not very portable so restrictive of when it can be played
+  - why: Practicing spelling / learning English
+
+Scope
+ - content Requirement: An interactive game that takes user inputs, if word is guessed before the players life runs out they win, else they loose.
+
+Structure
+ - Interactive Design: Take user inputs and respond accordingly, provide error feedback if incorrect inputs gives
+
+ - information architecture: 
+
+Skeleton
+ - Interface Design: 
+
+ - Navigation design: User can decide if they with to continue game or exit on a win or a loss. No other navigation is required.
+
+ - Information design: 
+
+Surface
+ - Sensory Design: Clear spacing for relevant information, give clear and concice feedback for user. Text art and possibly color.
+
 ## Features Left to Implement
 
 Difficulty
