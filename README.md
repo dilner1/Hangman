@@ -85,10 +85,16 @@ python3 run.py
 
 typed pip3 freeze > requirements.txt to add files to requirements
 
-
-
 # Credits
+Referenced these youtube tutorials to get an understanding of different aproaches to building Hangman
+https://www.youtube.com/watch?v=m4nEnsavl6w&ab_channel=Kite
+https://www.youtube.com/watch?v=cJJTnI22IF8&t=315s&ab_channel=KylieYing
+https://www.youtube.com/watch?v=GxpwA4_4Gww&list=FLeOJ7bi8jwNWMEmcYKr98Qg&index=1&ab_channel=sethmcfeeters
+
+Stackoverflow
 
 ## Content
+used patorjk.com for the handman text art - generator can be found here: https://patorjk.com/software/taag/#p=display&f=Small&t=Type%20Something%20
 
 ## Media
+There are no media files other than images in the read me
