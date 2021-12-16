@@ -35,13 +35,14 @@ User experience
 Implementation: Test quality of experience users have with game
 Test: Users tested game, mostly none had experience with a comman line game
 Result: Game worked but some found it wasn't always clear what was happening
-Verdict: Works well but added color and more spacing to improve ease of readability, user errors have red background.
+Verdict: Works well but added color codes to success and errors and more spacing to improve ease of readability, re-wrote user feedback to be clearer.
 
 restart game
 Implementation: 
 Test: 
 Result: 
 Verdict: 
+
 
 
 ## Validator Testing
