@@ -1,20 +1,26 @@
 # Hangman
 
 # Features
-
+## Intialising screen
 ![alt text](assets/images/initialising.png)
 
+## User guesses word correctly
 ![alt text](assets/images/correct.png)
 
+## User guesses the incorrect letter
 ![alt text](assets/images/incorrect.png)
 
+## User wins
 ![alt text](assets/images/win.png)
 
-Error handling
+Error handling: 
+## User inputs something other than a letter
 ![alt text](assets/images/err_invalid.png)
 
+## User inputs a letter that is already in use
 ![alt text](assets/images/err_let_selected.png)
 
+## User inputs multiple letters
 ![alt text](assets/images/err_multiple.png)
 
 ## UX Design
