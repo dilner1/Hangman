@@ -1,26 +1,26 @@
 # Hangman
 
 # Features
-## Intialising screen
+Intialising screen
 ![start screen](assets/images/initialising.png)
 
-## User guesses word correctly
+User guesses word correctly
 ![correct guess message](assets/images/correct.png)
 
-## User guesses the incorrect letter
+User guesses the incorrect letter
 ![incorrect guess message](assets/images/incorrect.png)
 
-## User wins
+User wins
 ![Win message](assets/images/win.png)
 
-Error handling: 
-## User inputs something other than a letter
+## Error handling: 
+User inputs something other than a letter
 ![Non-letter error](assets/images/err_invalid.png)
 
-## User inputs a letter that is already in use
+User inputs a letter that is already in use
 ![input already used error](assets/images/err_let_selected.png)
 
-## User inputs multiple letters
+User inputs multiple letters
 ![multiple letter error](assets/images/err_multiple.png)
 
 ## UX Design
@@ -50,6 +50,7 @@ Skeleton
 Surface
  - Sensory Design: Clear spacing for relevant information, give clear and concice feedback for user. Text art and possibly color.
 
+Pre production flow chart
 ![pre production flow chart](assets/images/flowchart.png)
 
 ## Features Left to Implement
