@@ -20,6 +20,7 @@ Error handling
 ## Features Left to Implement
 
 Difficulty
+In future I would look to impliment a difficulty setting, before the game initialised I would take a user input to select 'E' for easy, 'M' for Medium and 'H' for hard, each would run a function that changes the value of the word file.
 
 # Testing
 
@@ -36,14 +37,6 @@ Implementation: Test quality of experience users have with game. \
 Test: Users tested game, mostly none had experience with a comman line game. \
 Result: Game worked but some found it wasn't always clear what was happening. \
 Verdict: Works well but added color codes to success and errors and more spacing to improve ease of readability, re-wrote user feedback to be clearer. \
-
-restart game
-Implementation: 
-Test: 
-Result: 
-Verdict: 
-
-
 
 ## Validator Testing
 
@@ -82,19 +75,28 @@ pip install colorama 'pip install colorama'
 python3 run.py
 
 ## Deploy to Herokou
+1.	Create a Herokou account
+2.	Choose App name and region, the name must be unique
+3.	Click ‘Create App’
+4.	Adjust settings before deployment
+5.	Go to config vars,  type PORT in key field, type 8000 in value field – click add.
+6.	Add buildbacks, first select Python, save changes. Click nodejs and save, make sure python sits above nodejs – drag into correct order if this is wrong.
+7.	Go to deploy section, select github to connect – you then need to type in the github repository name.
+8.	Click automatic deploy or manual deploy, automatic will be best if you plan on making any changes to the repository as it automatically updates Herokou.
+9.	Wait for deployment link to generage – a view button will appear
+10.	Make sure you have the latest version of the app on github has been pushed.
 
 typed pip3 freeze > requirements.txt to add files to requirements
 
-# Credits
+# Credits, content and media
 Referenced these youtube tutorials to get an understanding of different aproaches to building Hangman
 https://www.youtube.com/watch?v=m4nEnsavl6w&ab_channel=Kite
 https://www.youtube.com/watch?v=cJJTnI22IF8&t=315s&ab_channel=KylieYing
 https://www.youtube.com/watch?v=GxpwA4_4Gww&list=FLeOJ7bi8jwNWMEmcYKr98Qg&index=1&ab_channel=sethmcfeeters
 
-Stackoverflow
+Stackoverflow - frequently reference when issues arose
 
-## Content
-used patorjk.com for the handman text art - generator can be found here: https://patorjk.com/software/taag/#p=display&f=Small&t=Type%20Something%20
+https://app.diagrams.net/ - used to create flow chart to plan design
+https://patorjk.com/software/taag/#p=display&f=Small&t=Type%20Something%20 - for the handman text art
 
-## Media
 There are no media files other than images in the read me
