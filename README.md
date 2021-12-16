@@ -2,26 +2,26 @@
 
 # Features
 ## Intialising screen
-![alt text](assets/images/initialising.png)
+![start screen](assets/images/initialising.png)
 
 ## User guesses word correctly
-![alt text](assets/images/correct.png)
+![correct guess message](assets/images/correct.png)
 
 ## User guesses the incorrect letter
-![alt text](assets/images/incorrect.png)
+![incorrect guess message](assets/images/incorrect.png)
 
 ## User wins
-![alt text](assets/images/win.png)
+![Win message](assets/images/win.png)
 
 Error handling: 
 ## User inputs something other than a letter
-![alt text](assets/images/err_invalid.png)
+![Non-letter error](assets/images/err_invalid.png)
 
 ## User inputs a letter that is already in use
-![alt text](assets/images/err_let_selected.png)
+![input already used error](assets/images/err_let_selected.png)
 
 ## User inputs multiple letters
-![alt text](assets/images/err_multiple.png)
+![multiple letter error](assets/images/err_multiple.png)
 
 ## UX Design
 
@@ -50,13 +50,15 @@ Skeleton
 Surface
  - Sensory Design: Clear spacing for relevant information, give clear and concice feedback for user. Text art and possibly color.
 
+![pre production flow chart](assets/images/flowchart.png)
+
+
 ## Features Left to Implement
 
 Difficulty
 In future I would look to impliment a difficulty setting, before the game initialised I would take a user input to select 'E' for easy, 'M' for Medium and 'H' for hard, each would run a function that changes the value of the word file.
 
 # Testing
-
 ## Implementation
 
 Error handling
