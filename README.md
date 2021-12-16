@@ -31,12 +31,17 @@ Test: try game multiple times, trying capitol and lower case, symbols, numbers a
 Result: Caught all errors and passed correct inputs
 Verdict: Success
 
-ease of use
-Implementation: 
+User experience
+Implementation: Test quality of experience users have with game
 Test: Users tested game, mostly none had experience with a comman line game
 Result: Game worked but some found it wasn't always clear what was happening
-Verdict: Works well but added color as well as more spacing to improve ease of readability.
+Verdict: Works well but added color and more spacing to improve ease of readability, user errors have red background.
 
+restart game
+Implementation: 
+Test: 
+Result: 
+Verdict: 
 
 
 ## Validator Testing
@@ -63,14 +68,6 @@ Resolution: removed formating and \n
 Problem: Sometimes extra '_' appears on the hidden word
 Cause: If there is _ left at the end of a game they are added onto the next game's word
 Resolution: Problem only occured when providing a fixed word to guess, which I did in testing, when I changed this to randome each time as it should be the problem dissapeared
-
-Problem: try / except error handling not catching incorrect values
-Cause:
-Resolution:
-
-How I tested how user can break game - give user feedback that tells them what to do
-
-Test with users see what they thought of it
 
 ## Unfixed Bugs
 
