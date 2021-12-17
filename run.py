@@ -41,7 +41,8 @@ class game():
         """
         Define variables for class
         """
-        print(f"""Please select your difficulty. 
+        print(f"""
+        Please select your difficulty. 
         Press E for easy, M for medium or H for hard.\n""")
 
         self.word = self.set_word()
@@ -74,7 +75,9 @@ class game():
                 return random.choice(all_hard_words)
             else:
                 print(f"""
-                {Back.RED}You typed {self.difficulty.lower()}. Select difficulty again.{Back.RESET}
+                {Back.RED}You typed {self.difficulty.lower()}.""")
+                print(f"""
+                Select difficulty again.{Back.RESET}
                 """)
                 self.go = False
             
@@ -110,22 +113,26 @@ class game():
         """
         letter_guess = guess.lower()
         if letter_guess.isalpha() == False:
-            print(f"""{Back.RED}{guess} is not a letter. Type a letter.
+            print(f"""{Back.RED}
+            {guess}is not a letter. Type a letter.
             {Back.RESET}\n
             """)
             self.update_letters()
             return False
 
         elif letter_guess in self.guesses or letter_guess in self.secret:
-            print(f"""{Back.RED}You have already tried letter {letter_guess}.
-            Please try another letter.{Back.RESET}\n""")
+            print(f"""{Back.RED}
+            You have already tried letter {letter_guess}. 
+            Please try another letter.
+            {Back.RESET}\n""")
             self.update_letters()
             return False
 
         elif len(letter_guess) >= 2:
             length = len(letter_guess)
-            print(f"""{Back.RED}Your tried to guess {length} letters.
-             You can only type one at a time.{Back.RESET}\n""")
+            print(f"""{Back.RED}
+            Your tried to guess {length} letters.You can only type one at a time.
+            {Back.RESET}\n""")
             self.update_letters()
             return False
         
@@ -139,10 +146,13 @@ class game():
         """
         if guess.lower() not in self.word.lower():
             self.lives -= 1
-            print(f"{Fore.MAGENTA}Incorrect, you lost a life.{Fore.YELLOW}\n")
+            print(f"""{Fore.MAGENTA}
+            Incorrect, you lost a life.
+            {Fore.YELLOW}\n""")
         else:
-            print(f"""{Fore.GREEN}You guessed a
-             letter correctly.{Fore.YELLOW}\n""")
+            print(f"""{Fore.GREEN}
+            You guessed a letter correctly.
+            {Fore.YELLOW}\n""")
             for i in range(0, len(self.word)):
                     letter = self.word[i]
                     if letter == guess:
@@ -158,8 +168,10 @@ class game():
             |__/|__/___/_/|_/  
                     
             """)
-            print(f"""Congratulations, you have guessed the word with {lives} Lives left.
-            The letter was {self.word}.{Fore.YELLOW}\n""")
+            print(f"""
+            Congratulations, you have guessed the word with {lives} Lives left.
+            """)
+            print(f"The letter was {self.word}.{Fore.YELLOW}")
             return False
         elif self.lives == 0:
             self.drawing(0)
