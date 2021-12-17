@@ -38,14 +38,14 @@ Scope
 Structure
  - Interactive Design: Take user inputs and respond accordingly, provide error feedback if incorrect inputs gives
 
- - information architecture: 
+ - information architecture: use of user navigation pior to starting game and on win or lose
 
 Skeleton
  - Interface Design: Linear design as command line application, use of inputs and ASCII images for user to interact with.
 
  - Navigation design: There is an initialization screen that asks user if they want to start, user is then able to select difficulty level. User can decide if they with to continue game or exit on a win or a loss, this takes them back to difficulty select if they want to continue or to title screen if they wish to exit.
 
- - Information design: 
+ - Information design: Clear spacing and use of color coded messages users can understand at a glance.
 
 Surface
  - Sensory Design: Clear spacing for relevant information, give clear and concice feedback for user. Text art and possibly color.

@@ -42,7 +42,7 @@ class game():
         Define variables for class
         """
         print(f"""Please select your difficulty. 
-        Press E for easy, m for medium or H for hard.\n""")
+        Press E for easy, M for medium or H for hard.\n""")
 
         self.word = self.set_word()
         self.secret = list(len(self.word)*'_')
