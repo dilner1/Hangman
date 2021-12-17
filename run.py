@@ -80,7 +80,6 @@ class game():
         """
         joined_word = " ".join(self.secret)
         print(joined_word)
-        print(self.word)
         print(f'You have {self.lives} lives remaining.')
 
     def drawing(self, lives):
