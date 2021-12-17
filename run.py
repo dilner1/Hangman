@@ -60,8 +60,7 @@ class game():
         elif self.difficulty.lower() == 'h':
             return random.choice(all_hard_words)
         else:
-            print(f"Please type E or H, you entered{self.difficulty.lower()}")
-            # self.difficulty
+            print(f"Please type E or H, you entered {self.difficulty.lower()}")
             game()
 
     def show_word(self):
