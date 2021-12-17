@@ -79,7 +79,6 @@ class game():
         """
         joined_word = " ".join(self.secret)
         print(joined_word)
-        print(self.word)
         print(f'You have {self.lives} lives remaining.')
 
     def drawing(self, lives):
@@ -172,7 +171,6 @@ class game():
         elif restart == 'y':
             print("Restarting game...\n")
             main()
-            # exec(open("./run.py").read())
         else:
             print(f"{Back.RED}You need to type Y or N.{Back.RESET}\n")
             self.restart_game()
