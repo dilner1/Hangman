@@ -13,7 +13,8 @@ done = False
 
 # difficulty = ""
 
-logo = (Fore.GREEN + """
+def game_start():
+    logo = (Fore.GREEN + """
     __  __                                      
    / / / /___ _____  ____ _____ ___  ____ _____ 
   / /_/ / __ `/ __ \/ __ `/ __ `__ \/ __ `/ __ \\
@@ -21,6 +22,16 @@ logo = (Fore.GREEN + """
 /_/ /_/\__,_/_/ /_/\__, /_/ /_/ /_/\__,_/_/ /_/ 
                   /____/                        
     """)
+    print(logo)
+
+    print(f"{Fore.YELLOW}To start game press Y, press any key to exit.\n")
+    start = input('Start Game:').lower()
+    if start != 'y':
+        print(f"Exiting...\n")
+        
+    else:
+        main()
+
 
 class game():
     def __init__(self):
@@ -119,11 +130,12 @@ class game():
         """
         restart = input('do you want to play again: Y/N?').lower()
         if restart == 'n':
-            print('Game ending - thanks for playing :)')
-            return True
+            print('Session ending - thanks for playing :)')
+            game_start()
         elif restart == 'y':
             print("Restarting game...\n")
-            exec(open("./run.py").read())
+            main()
+            # exec(open("./run.py").read())
         else:
             print(f"{Back.RED}You need to type Y or N.{Back.RESET}\n")
             self.restart_game()
@@ -151,10 +163,8 @@ def main():
             letters = play.store_guesses(guess.lower())
             play.is_guess_in_word(guess.lower())
             if play.check_win(lives) == False:
-                if play.restart_game() == True:
-                    break
+                play.restart_game()
 
             play.update_letters()
         
-print(logo)
-main()
+game_start()
