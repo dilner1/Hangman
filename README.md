@@ -112,11 +112,13 @@ Problem: When typing errors in difficulty select would cause correct inputs afte
 Cause: Problem was not present with only one word file, while loop causing it to not return correct data, try / except not catching errors.
 Resolution: Returned invalid data to initial screen as could not find a solution - discussed below.
 
+Problem: set_word() func throwing errors when correct inputs made, sometimes breaking after several inccorect inputs. \
+Cause: Multiple difficulties cauing an issue with if statement and try / except.\
+Resolution: While loop and True / False variable allows errors to loop while passing correct inputs.
+
 ## Unfixed Bugs
 
-There are no current errors that I could find testing incorrect values over and over. The set_word() function does not work how intended however. I would ideally have this only throw errors and loop through the input if the user types in the wrong data. I attempted both try / except and while loops - these methods worked to various degrees however they threw errors when users inputted correct data or broke on too many attempts of inputting the wrong data and then trying a correct one. Opted for this to take used back to initialization screen which is not ideal but works.
-
-Prior to implementing more than one difficulty levels this was not an issue, this added complexity has made it more difficult to solve in a way that I want. I am certain there will be a way to use either try and except or while loop so these methods did partially work.
+There are no current errors that I could find testing incorrect values over and over. 
 
 # Deployment
 
