@@ -1,5 +1,6 @@
 # Hangman
-__________
+
+Hangman is based of the popular childrens game, you are given a word to guess and must find out what it is before you run out of lives. Once you start the game you can select the difficulty, this will affect how many lives you have and how hard the words are to guess. Once you have a word you can type in a letter, if it is wrong you lose a life, it you are right the letter will appear in the space it is in the letter. You can change the difficulty at the end of every round or exit if you wish.
 
 # Features
 Intialising screen
