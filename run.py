@@ -114,7 +114,7 @@ class game():
         letter_guess = guess.lower()
         if letter_guess.isalpha() == False:
             print(f"""{Back.RED}
-            {guess}is not a letter. Type a letter.
+            {guess} is not a letter. Type a letter.
             {Back.RESET}\n
             """)
             self.update_letters()
