@@ -41,9 +41,9 @@ Structure
  - information architecture: 
 
 Skeleton
- - Interface Design: 
+ - Interface Design: Linear design as command line application, use of inputs and ASCII images for user to interact with.
 
- - Navigation design: User can decide if they with to continue game or exit on a win or a loss. No other navigation is required.
+ - Navigation design: There is an initialization screen that asks user if they want to start, user is then able to select difficulty level. User can decide if they with to continue game or exit on a win or a loss, this takes them back to difficulty select if they want to continue or to title screen if they wish to exit.
 
  - Information design: 
 
@@ -55,8 +55,17 @@ Pre production flow chart
 
 ## Features Left to Implement
 
-Difficulty
-In future I would look to impliment a difficulty setting, before the game initialised I would take a user input to select 'E' for easy, 'M' for Medium and 'H' for hard, each would run a function that changes the value of the word file.
+
+
+## Data Model
+
+I focussed on using Object Oriented Programming in this project, this prehaps makes the project more complex than it needs to be however it will make it easier to maintain in the future. A class was used to create the bulk of the game with a few functions to interract with it. 
+
+Also includes:
+- Inputs
+- Print statements
+- for loops
+- append
 
 # Testing
 ## Implementation
@@ -67,17 +76,22 @@ Test: try game multiple times, trying capitol and lower case, symbols, numbers a
 Result: Caught all errors and passed correct inputs. \
 Verdict: Success.
 
-User experience
+User experience - Ease of Use
 Implementation: Test quality of experience users have with game. \
 Test: Users tested game, mostly none had experience with a comman line game. \
 Result: Game worked but some found it wasn't always clear what was happening. \
 Verdict: Works well but added color codes to success and errors and more spacing to improve ease of readability, re-wrote user feedback to be clearer. \
 
+User experience - Navigation
+Implementation: Test how users find navigating the app, difficulty select and exiting game. \
+Test: Have users try multiple games, trying different difficulties and exiting with minimal assistance. \
+Result: Users didn't like having to select difficulty every time they start a new game, otherwise easy to navigate app. \
+Verdict: Overall not bad but the difficulty select could be moved to another section or bipassed on restart. \
+
 ## Validator Testing
 
-
-E712	208	39	comparison to True should be 'if cond is True:' or 'if cond:'
-E712	211	38	comparison to False should be 'if cond is False:' or 'if not cond:'
+Most of the issues with the validation were with the use of white space which I have not changes as I wanted to keep the project clear and readable, maximum of 1 space between lines. There were issues with using True / False statements however the code works so won't change this.
+![pep* validation](assets/images/test.png)
 
 ## bugs
 Problem: When guessing a letter lives would be taken off depending on number of letters in word. This would happen even if one letter was guessed correctly \
@@ -96,17 +110,15 @@ Problem: Sometimes extra '_' appears on the hidden word. \
 Cause: If there is _ left at the end of a game they are added onto the next game's word. \
 Resolution: Problem only occured when providing a fixed word to guess, which I did in testing, when I changed this to random each time as it should be the problem dissapeared.
 
-Problem:  \
-Cause:  \
-Resolution: 
-
-
-if play.check_win(lives) == False:
-                play.restart_game()
+Problem: When typing errors in difficulty select would cause correct inputs after to be incorrect. \
+Cause: Problem was not present with only one word file, while loop causing it to not return correct data, try / except not catchign errors
+resolution: Returned invalid data to initial screen as could not find a solution - discussed below
 
 ## Unfixed Bugs
 
 There are no current errors that I could find tesing inccorect values over and over. The set_word() function does not work how intended however. I would ideally have this only throw errors and loop through the input if the user types in the wrong data. I attempted both try / except and while loops - these methods worked to various degrees however they threw errors when users inputted correct data or broke on too many attempts of inputting the wrong data and then trying a correct one. Opted for this to take used back to intialisations screen which is not ideal but works.
+
+Prior to implimenting more than one difficulty levels this was not an issue, this added complexity has made it more difficult to solve in a way that I want. I am certain there will be a way to use either try and except or while loop so these methods did partially work.
 
 # Deployment
 
@@ -129,6 +141,9 @@ There are no current errors that I could find tesing inccorect values over and o
 10.	Wait for deployment link to generage – a view button will appear.
 
 # Credits, content and media
+
+Code Insitute for deployment terminal
+
 Referenced these youtube tutorials to get an understanding of different aproaches to building Hangman
 https://www.youtube.com/watch?v=m4nEnsavl6w&ab_channel=Kite
 https://www.youtube.com/watch?v=cJJTnI22IF8&t=315s&ab_channel=KylieYing

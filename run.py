@@ -36,7 +36,6 @@ def game_start():
     else:
         main()
 
-
 class game():
     def __init__(self):
         """
