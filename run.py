@@ -4,17 +4,17 @@ import colorama
 from colorama import Fore, Back
 
 import easyWords
+import hardWords
 import drawing
 
 all_easy_words = easyWords.easy_word_list
+all_hard_words = hardWords.hard_word_list
 hangman = drawing.drawing_dictionary
 
-
-done = False
-
-# difficulty = ""
-
 def game_start():
+    """
+    Prints logo and initialises game, asks player if they want to play
+    """
     logo = (Fore.GREEN + """
     __  __                                      
    / / / /___ _____  ____ _____ ___  ____ _____ 
@@ -39,6 +39,9 @@ class game():
         """
         Define variables for class
         """
+        print(f"Select difficulty, press E for easy or H for hard.\n")
+        self.difficulty = input("Select difficulty:")
+
         self.word = self.set_word()
         self.secret = list(len(self.word)*'_')
         self.lives = 8
@@ -52,8 +55,14 @@ class game():
         """
         Fucntion sets random words
         """
-        return random.choice(all_easy_words)
-        
+        if self.difficulty.lower() == 'e':
+            return random.choice(all_easy_words)
+        elif self.difficulty.lower() == 'h':
+            return random.choice(all_hard_words)
+        else:
+            print(f"Please type E or H, you entered{self.difficulty.lower()}")
+            # self.difficulty
+            game()
 
     def show_word(self):
         """
@@ -133,7 +142,7 @@ class game():
         """
         Asks if player wants to continue and allows restart if so
         """
-        restart = input('do you want to play again: Y/N?').lower()
+        restart = input(f'do you want to play again: Y/N?\n').lower()
         if restart == 'n':
             print('Session ending - thanks for playing :)')
             game_start()
