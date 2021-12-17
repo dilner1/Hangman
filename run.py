@@ -43,7 +43,6 @@ class game():
 
         self.word = self.set_word()
         self.secret = list(len(self.word)*'_')
-        self.lives = 8
         self.hangman = hangman
         self.guesses = []
         self.incorrect_guesses_list = " ".join(self.guesses)
@@ -58,9 +57,11 @@ class game():
 
         try:
             if self.difficulty.lower() == 'e':
+                self.lives = 8
                 return random.choice(all_easy_words)
 
             elif self.difficulty.lower() == 'h':
+                self.lives = 6
                 return random.choice(all_hard_words)
 
             else:
@@ -69,8 +70,6 @@ class game():
             print(f"{Back.RED}Please type E or H, you entered: {self.difficulty}{Back.RESET}\n")
             self.set_word()
             self.difficulty = input("Select difficulty:")
-            
-            
 
     def show_word(self):
         """
