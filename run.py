@@ -68,7 +68,9 @@ class game():
         except ValueError as e:
             print(f"{Back.RED}Please type E or H, you entered: {self.difficulty}{Back.RESET}\n")
             self.set_word()
-            return random.choice(all_easy_words)
+            self.difficulty = input("Select difficulty:")
+            
+            
 
     def show_word(self):
         """
@@ -137,11 +139,25 @@ class game():
 
     def check_win(self, lives):
         if "_" not in self.secret:
-            print(f"Congratulations, you have guessed the word with {lives} lives left.\nThe letter was {self.word}.\n")
+            print(Fore.GREEN + """
+             _      _______  __
+            | | /| / /  _/ |/ /
+            | |/ |/ // //    / 
+            |__/|__/___/_/|_/  
+                    
+            """)
+            print(f"Congratulations, you have guessed the word with {lives} lives left.\nThe letter was {self.word}.{Fore.YELLOW}\n")
             return False
         elif self.lives == -1:
             self.drawing(lives)
-            print(f'You lose!, the word was {self.word}')
+            print(Fore.MAGENTA + """
+               __   ____  ________
+              / /  / __ \/ __/ __/
+             / /__/ /_/ /\ \/ _/  
+            /____/\____/___/___/  
+
+            """)
+            print(f'You lose!, the word was {self.word}{Fore.YELLOW}\n')
             return False
         
     def restart_game(self):
