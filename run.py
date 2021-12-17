@@ -1,4 +1,5 @@
 import random
+import sys
 import colorama
 from colorama import Fore, Back
 
@@ -28,7 +29,7 @@ def game_start():
     start = input('Start Game:').lower()
     if start != 'y':
         print(f"Exiting...\n")
-        
+        sys.exit(-1)
     else:
         main()
 
@@ -48,7 +49,11 @@ class game():
         print(f"{Fore.YELLOW}Game starting...\n")
 
     def set_word(self):
+        """
+        Fucntion sets random words
+        """
         return random.choice(all_easy_words)
+        
 
     def show_word(self):
         """

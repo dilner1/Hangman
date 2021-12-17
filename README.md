@@ -92,7 +92,17 @@ Problem: Sometimes extra '_' appears on the hidden word. \
 Cause: If there is _ left at the end of a game they are added onto the next game's word. \
 Resolution: Problem only occured when providing a fixed word to guess, which I did in testing, when I changed this to random each time as it should be the problem dissapeared.
 
+Problem:  \
+Cause:  \
+Resolution: 
+
+
+if play.check_win(lives) == False:
+                play.restart_game()
+
 ## Unfixed Bugs
+
+Do not have a function to stop repeating words so theoretically can have the same word appear again after
 
 # Deployment
 
