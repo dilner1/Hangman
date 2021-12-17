@@ -106,7 +106,7 @@ if play.check_win(lives) == False:
 
 ## Unfixed Bugs
 
-I have not been able to find any bugs for now
+There are no current errors that I could find tesing inccorect values over and over. The set_word() function does not work how intended however. I would ideally have this only throw errors and loop through the input if the user types in the wrong data. I attempted both try / except and while loops - these methods worked to various degrees however they threw errors when users inputted correct data or broke on too many attempts of inputting the wrong data and then trying a correct one. Opted for this to take used back to intialisations screen which is not ideal but works.
 
 # Deployment
 

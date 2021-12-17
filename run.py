@@ -146,8 +146,8 @@ class game():
             """)
             print(f"Congratulations, you have guessed the word with {lives} lives left.\nThe letter was {self.word}.{Fore.YELLOW}\n")
             return False
-        elif self.lives == -1:
-            self.drawing(lives)
+        elif self.lives == 0:
+            self.drawing(0)
             print(Fore.MAGENTA + """
                __   ____  ________
               / /  / __ \/ __/ __/
