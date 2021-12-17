@@ -45,6 +45,7 @@ class game():
         """
         joined_word = " ".join(self.secret)
         print(joined_word)
+        print(self.word)
         print(f'You have {self.lives} lives remaining.')
 
     def drawing(self, lives):
@@ -119,12 +120,13 @@ class game():
         restart = input('do you want to play again: Y/N?').lower()
         if restart == 'n':
             print('Game ending - thanks for playing :)')
-            return False
+            return True
         elif restart == 'y':
             print("Restarting game...\n")
             exec(open("./run.py").read())
         else:
-            print("You need to type Y or N.\n")
+            print(f"{Back.RED}You need to type Y or N.{Back.RESET}\n")
+            self.restart_game()
 
     def update_letters(self):
         print(f"so far you have guessed: {self.guesses} \n")
@@ -149,10 +151,9 @@ def main():
             letters = play.store_guesses(guess.lower())
             play.is_guess_in_word(guess.lower())
             if play.check_win(lives) == False:
-                if play.restart_game() == False:
+                if play.restart_game() == True:
                     break
-                # else:
-                #     play.restart_game()
+
             play.update_letters()
         
 print(logo)
