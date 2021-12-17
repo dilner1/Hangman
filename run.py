@@ -165,6 +165,6 @@ def main():
             if play.check_win(lives) == False:
                 play.restart_game()
 
-            play.update_letters()
+            # play.update_letters()
         
 game_start()
