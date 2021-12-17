@@ -88,8 +88,8 @@ Verdict: Overall not bad but the difficulty select could be moved to another sec
 
 ## Validator Testing
 
-Most of the issues with the validation were with the use of white space which I have not changes as I wanted to keep the project clear and readable, maximum of 1 space between lines. There were issues with using True / False statements however the code works so won't change this.
-![pep* validation](assets/images/test.png)
+Most of the issues with the validation were with the use of white space which I have not changes as I wanted to keep the project clear and readable, maximum of 1 space between lines. There were issues with using True / False statements however the code works so won't change this. Required me to print statements to fit in the maximum line length.
+![pep8 validation](assets/images/test.png)
 
 ## bugs
 Problem: When guessing a letter lives would be taken off depending on number of letters in word. This would happen even if one letter was guessed correctly. \
