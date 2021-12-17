@@ -41,7 +41,7 @@ class game():
         """
         Define variables for class
         """
-        print(f"Select difficulty, press E for easy or H for hard.\n")
+        print(f"Select difficulty, press E for easy, m for medium or H for hard.\n")
 
         self.word = self.set_word()
         self.secret = list(len(self.word)*'_')
@@ -58,7 +58,7 @@ class game():
         self.difficulty = input("Select difficulty: ")
 
         while self.difficulty  != 'e' or self.difficulty  != 'h':
-            print(f"{Back.RED}You typed: {self.difficulty}, please press E for easy or H for hard{Back.RESET} \n")
+            print(f"{Back.RED}You typed: {self.difficulty}, please press E for easy, m for medium or H for hard{Back.RESET} \n")
             self.difficulty = input("Select difficulty: ")
 
             if self.difficulty.lower() == 'e':
