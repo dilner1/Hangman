@@ -5,10 +5,12 @@ from colorama import Fore, Back
 
 import easyWords
 import hardWords
+import mediumWords
 import drawing
 
 all_easy_words = easyWords.easy_word_list
 all_hard_words = hardWords.hard_word_list
+all_medium_words = mediumWords.medium_word_list
 hangman = drawing.drawing_dictionary
 
 def game_start():
@@ -62,6 +64,10 @@ class game():
             if self.difficulty.lower() == 'e':
                 self.lives = 8
                 return random.choice(all_easy_words)
+            
+            elif self.difficulty.lower() == 'm':
+                self.lives = 7
+                return random.choice(all_medium_words)
 
             elif self.difficulty.lower() == 'h':
                 self.lives = 6
