@@ -138,6 +138,9 @@ class game():
         print("")
 
     def check_win(self, lives):
+        """
+        Checks if all words have been guessed and prints win / lose message
+        """
         if "_" not in self.secret:
             print(Fore.GREEN + """
              _      _______  __

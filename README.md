@@ -102,7 +102,7 @@ if play.check_win(lives) == False:
 
 ## Unfixed Bugs
 
-Do not have a function to stop repeating words so theoretically can have the same word appear again after
+I have not been able to find any bugs for now
 
 # Deployment
 
