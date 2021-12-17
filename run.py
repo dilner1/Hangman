@@ -25,9 +25,9 @@ def game_start():
     """)
     print(logo)
 
-    print(f"{Fore.YELLOW}To start game press Y, press any key to exit.\n")
+    print(f"{Fore.YELLOW}To start game press any key, type exit key to close game.\n")
     start = input('Start Game:').lower()
-    if start != 'y':
+    if start == 'exit':
         print(f"Exiting...\n")
         sys.exit(-1)
     else:
@@ -45,17 +45,20 @@ class game():
         self.secret = list(len(self.word)*'_')
         self.hangman = hangman
         self.guesses = []
-        self.incorrect_guesses_list = " ".join(self.guesses)
+        self.incorrect_guesses_list = " ".join(self.guesses)        
 
         print(f"{Fore.YELLOW}Game starting...\n")
 
     def set_word(self):
         """
-        Fucntion sets random words, takes difficulty 
+        Fucntion sets random words and difficulty level
         """
-        self.difficulty = input("Select difficulty:")
+        self.difficulty = input("Select difficulty: ")
 
-        try:
+        while self.difficulty  != 'e' or self.difficulty  != 'h':
+            print(f"{Back.RED}You typed: {self.difficulty}, please press E for easy or H for hard{Back.RESET} \n")
+            self.difficulty = input("Select difficulty: ")
+
             if self.difficulty.lower() == 'e':
                 self.lives = 8
                 return random.choice(all_easy_words)
@@ -63,13 +66,6 @@ class game():
             elif self.difficulty.lower() == 'h':
                 self.lives = 6
                 return random.choice(all_hard_words)
-
-            else:
-                raise ValueError
-        except ValueError as e:
-            print(f"{Back.RED}Please type E or H, you entered: {self.difficulty}{Back.RESET}\n")
-            self.set_word()
-            self.difficulty = input("Select difficulty:")
 
     def show_word(self):
         """
