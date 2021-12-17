@@ -112,8 +112,8 @@ Problem: When typing errors in difficulty select would cause correct inputs afte
 Cause: Problem was not present with only one word file, while loop causing it to not return correct data, try / except not catching errors.
 Resolution: Returned invalid data to initial screen as could not find a solution - discussed below.
 
-Problem: set_word() func throwing errors when correct inputs made, sometimes breaking after several inccorect inputs. \
-Cause: Multiple difficulties cauing an issue with if statement and try / except.\
+Problem: set_word() func throwing errors when correct inputs made, sometimes breaking after several incorrect inputs. \
+Cause: Multiple difficulties causing an issue with if statement and try / except.\
 Resolution: While loop and True / False variable allows errors to loop while passing correct inputs.
 
 ## Unfixed Bugs
