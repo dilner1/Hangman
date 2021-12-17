@@ -40,7 +40,6 @@ class game():
         Define variables for class
         """
         print(f"Select difficulty, press E for easy or H for hard.\n")
-        self.difficulty = input("Select difficulty:")
 
         self.word = self.set_word()
         self.secret = list(len(self.word)*'_')
@@ -53,15 +52,23 @@ class game():
 
     def set_word(self):
         """
-        Fucntion sets random words
+        Fucntion sets random words, takes difficulty 
         """
-        if self.difficulty.lower() == 'e':
+        self.difficulty = input("Select difficulty:")
+
+        try:
+            if self.difficulty.lower() == 'e':
+                return random.choice(all_easy_words)
+
+            elif self.difficulty.lower() == 'h':
+                return random.choice(all_hard_words)
+
+            else:
+                raise ValueError
+        except ValueError as e:
+            print(f"{Back.RED}Please type E or H, you entered: {self.difficulty}{Back.RESET}\n")
+            self.set_word()
             return random.choice(all_easy_words)
-        elif self.difficulty.lower() == 'h':
-            return random.choice(all_hard_words)
-        else:
-            print(f"Please type E or H, you entered {self.difficulty.lower()}")
-            game()
 
     def show_word(self):
         """
@@ -177,7 +184,5 @@ def main():
             play.is_guess_in_word(guess.lower())
             if play.check_win(lives) == False:
                 play.restart_game()
-
-            # play.update_letters()
         
 game_start()
