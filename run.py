@@ -5,12 +5,10 @@ from colorama import Fore, Back
 
 import easyWords
 import hardWords
-import mediumWords
 import drawing
 
 all_easy_words = easyWords.easy_word_list
 all_hard_words = hardWords.hard_word_list
-all_medium_words = mediumWords.medium_word_list
 hangman = drawing.drawing_dictionary
 
 def game_start():
@@ -27,9 +25,9 @@ def game_start():
     """)
     print(logo)
 
-    print(f"{Fore.YELLOW}To start game press any key, type exit key to close game.\n")
+    print(f"{Fore.YELLOW}To start game press Y, press any key to exit.\n")
     start = input('Start Game:').lower()
-    if start == 'exit':
+    if start != 'y':
         print(f"Exiting...\n")
         sys.exit(-1)
     else:
@@ -41,37 +39,38 @@ class game():
         """
         Define variables for class
         """
-        print(f"Select difficulty, press E for easy, m for medium or H for hard.\n")
+        print(f"Select difficulty, press E for easy or H for hard.\n")
 
         self.word = self.set_word()
         self.secret = list(len(self.word)*'_')
+        self.lives = 8
         self.hangman = hangman
         self.guesses = []
-        self.incorrect_guesses_list = " ".join(self.guesses)        
+        self.incorrect_guesses_list = " ".join(self.guesses)
 
         print(f"{Fore.YELLOW}Game starting...\n")
 
     def set_word(self):
         """
-        Fucntion sets random words and difficulty level
+        Fucntion sets random words, takes difficulty 
         """
-        self.difficulty = input("Select difficulty: ")
+        self.difficulty = input("Select difficulty:")
 
-        while self.difficulty  != 'e' or self.difficulty  != 'h':
-            print(f"{Back.RED}You typed: {self.difficulty}, please press E for easy, m for medium or H for hard{Back.RESET} \n")
-            self.difficulty = input("Select difficulty: ")
-
+        try:
             if self.difficulty.lower() == 'e':
-                self.lives = 8
                 return random.choice(all_easy_words)
-            
-            elif self.difficulty.lower() == 'm':
-                self.lives = 7
-                return random.choice(all_medium_words)
 
             elif self.difficulty.lower() == 'h':
-                self.lives = 6
                 return random.choice(all_hard_words)
+
+            else:
+                raise ValueError
+        except ValueError as e:
+            print(f"{Back.RED}Please type E or H, you entered: {self.difficulty}{Back.RESET}\n")
+            self.set_word()
+            self.difficulty = input("Select difficulty:")
+            
+            
 
     def show_word(self):
         """
@@ -79,6 +78,7 @@ class game():
         """
         joined_word = " ".join(self.secret)
         print(joined_word)
+        print(self.word)
         print(f'You have {self.lives} lives remaining.')
 
     def drawing(self, lives):
@@ -138,9 +138,6 @@ class game():
         print("")
 
     def check_win(self, lives):
-        """
-        Checks if all words have been guessed and prints win / lose message
-        """
         if "_" not in self.secret:
             print(Fore.GREEN + """
              _      _______  __
@@ -158,7 +155,6 @@ class game():
               / /  / __ \/ __/ __/
              / /__/ /_/ /\ \/ _/  
             /____/\____/___/___/  
-
             """)
             print(f'You lose!, the word was {self.word}{Fore.YELLOW}\n')
             return False
@@ -174,6 +170,7 @@ class game():
         elif restart == 'y':
             print("Restarting game...\n")
             main()
+            # exec(open("./run.py").read())
         else:
             print(f"{Back.RED}You need to type Y or N.{Back.RESET}\n")
             self.restart_game()

@@ -75,6 +75,10 @@ Verdict: Works well but added color codes to success and errors and more spacing
 
 ## Validator Testing
 
+
+E712	208	39	comparison to True should be 'if cond is True:' or 'if cond:'
+E712	211	38	comparison to False should be 'if cond is False:' or 'if not cond:'
+
 ## bugs
 Problem: When guessing a letter lives would be taken off depending on number of letters in word. This would happen even if one letter was guessed correctly \
 Cause: Was checking each letter in word if it matched with the guess using 'for letter in word: if guess == letter:' \
