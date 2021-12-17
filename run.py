@@ -55,24 +55,29 @@ class game():
         """
         Fucntion sets random words and difficulty level
         """
-        self.difficulty = input("Difficulty select: ")
-
-        if self.difficulty.lower() == 'e':
-            self.lives = 8
-            return random.choice(all_easy_words)
+        self.go = False
+        while self.go == False:
+            self.difficulty = input("Difficulty select: ")
+            if self.difficulty.lower() == 'e':
+                self.lives = 8
+                self.go = True
+                return random.choice(all_easy_words)
             
-        elif self.difficulty.lower() == 'm':
-            self.lives = 7
-            return random.choice(all_medium_words)
+            elif self.difficulty.lower() == 'm':
+                self.lives = 7
+                self.go = True
+                return random.choice(all_medium_words)
 
-        elif self.difficulty.lower() == 'h':
-            self.lives = 6
-            return random.choice(all_hard_words)
-        else:
-            print(f"""
-            {Back.RED}You typed {self.difficulty.lower()}. Select difficulty again.{Back.RESET}
-            """)
-            game_start()
+            elif self.difficulty.lower() == 'h':
+                self.lives = 6
+                self.go = True
+                return random.choice(all_hard_words)
+            else:
+                print(f"""
+                {Back.RED}You typed {self.difficulty.lower()}. Select difficulty again.{Back.RESET}
+                """)
+                self.go = False
+            
             
     def show_word(self):
         """
