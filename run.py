@@ -43,10 +43,9 @@ class game():
 
         self.word = self.set_word()
         self.secret = list(len(self.word)*'_')
-        self.lives = 8
         self.hangman = hangman
         self.guesses = []
-        self.incorrect_guesses_list = " ".join(self.guesses)
+        # self.incorrect_guesses_list = " ".join(self.guesses)
 
         print(f"{Fore.YELLOW}Game starting...\n")
 
@@ -58,9 +57,11 @@ class game():
 
         try:
             if self.difficulty.lower() == 'e':
+                self.lives = 8
                 return random.choice(all_easy_words)
 
             elif self.difficulty.lower() == 'h':
+                self.lives = 6
                 return random.choice(all_hard_words)
 
             else:
@@ -92,11 +93,10 @@ class game():
         Takes guessed letter, if incorrect it is stored for user to view
         """
         if guess not in self.word.lower():
-
             self.guesses.append(guess)
-            return self.incorrect_guesses_list
+            return self.guesses
         else:
-            return self.incorrect_guesses_list
+            return self.guesses
 
     def is_valid_guess(self, guess):
         """
@@ -170,7 +170,6 @@ class game():
         elif restart == 'y':
             print("Restarting game...\n")
             main()
-            # exec(open("./run.py").read())
         else:
             print(f"{Back.RED}You need to type Y or N.{Back.RESET}\n")
             self.restart_game()
@@ -199,5 +198,6 @@ def main():
             play.is_guess_in_word(guess.lower())
             if play.check_win(lives) == False:
                 play.restart_game()
+            play.update_letters()  
         
 game_start()
