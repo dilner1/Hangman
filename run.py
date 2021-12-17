@@ -25,9 +25,9 @@ def game_start():
     """)
     print(logo)
 
-    print(f"{Fore.YELLOW}To start game press Y, press any key to exit.\n")
+    print(f"{Fore.YELLOW}To start game press any key, type exit key to quit.\n")
     start = input('Start Game:').lower()
-    if start != 'y':
+    if start == 'exit':
         print(f"Exiting...\n")
         sys.exit(-1)
     else:
@@ -54,7 +54,7 @@ class game():
         """
         Fucntion sets random words, takes difficulty 
         """
-        self.difficulty = input("Select difficulty:")
+        self.difficulty = input("Select difficulty:").lower()
 
         try:
             if self.difficulty.lower() == 'e':
